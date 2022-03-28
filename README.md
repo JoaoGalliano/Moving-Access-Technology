@@ -1,6 +1,7 @@
 Moving Access Technology - Grupo 05
 
-By: Alehandro Quispe Qquehue RA: 01221104
+    By: 
+    Alehandro Quispe Qquehue RA: 01221104
     João Francisco Galliano de Oliveira RA: 01221066
     Larissa Dantas Ribeiro RA: 0111147
     Larissa dos Santos 01221126
