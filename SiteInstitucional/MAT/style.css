@@ -289,6 +289,7 @@ a{
 /* ----------------------------------------------------------------- */
 
  /* ESTILIZANDO A PÁGINA DE LOGIN */
+
  .h4_login{
      color:#FF9E01;
 }
@@ -305,7 +306,7 @@ a{
 }
 
 .card_login{
-    background-color:rgba(0, 0, 0, 0.993);
+    background-color:rgba(255,255, 255, 0.877);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -317,7 +318,7 @@ a{
 
 }
 
- .banner_login {
+ .banner_login{
     background-image: url("images/estacionamento.jpg");
     opacity: 0.9;
     height: 600px;
@@ -331,3 +332,58 @@ a{
 .card_login span{
     font-size: 14px;
 }
+
+/* ----------------------------------------------------------------- */
+
+ /* ESTILIZANDO A PÁGINA DE CADASTRO*/
+
+ .h4_cadastro{
+    color:#FF9E01;
+}
+
+.h1_cadastro{
+   text-align: center;
+}
+.banner_cadastro .container{
+   height: 590px;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+}
+
+.card_cadastro{
+   background-color:rgba(255,255, 255, 0.877);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: auto;
+   width: 500px;
+   height: 560px;
+   border-radius: 15px;
+    margin-top: 20px;
+}
+
+.banner_cadastro {
+   background-image: url("images/estacionamento.jpg");
+   opacity: 0.9;
+   height: 600px;
+   background-size: cover;     
+}
+
+.span_cadastro{
+   margin-top: 10px;
+   color: #FF9E01;
+}
+.card_cadastro span{
+   font-size: 14px;
+}
+
+.btn {
+    height: 50px;
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
