@@ -288,4 +288,46 @@ a{
 .btn_social ul li a:hover       { color:white; }
 /* ----------------------------------------------------------------- */
 
- 
+ /* ESTILIZANDO A PÁGINA DE LOGIN */
+ .h4_login{
+     color:#FF9E01;
+}
+
+.h1_login{
+    text-align: center;
+}
+ .banner_login .container{
+    height: 590px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.card_login{
+    background-color:rgba(0, 0, 0, 0.993);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 570px;
+    height: 500px;
+    border-radius: 15px;
+
+}
+
+ .banner_login {
+    background-image: url("images/estacionamento.jpg");
+    opacity: 0.9;
+    height: 600px;
+    background-size: cover;     
+}
+
+.span_login{
+    margin-top: 10px;
+    color: #FF9E01;
+}
+.card_login span{
+    font-size: 14px;
+}
