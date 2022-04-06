@@ -305,7 +305,7 @@ a{
 }
 
 .card_login{
-    background-color:rgba(0, 0, 0, 0.993);
+    background-color:rgba(255, 255, 255, 0.877);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -314,7 +314,6 @@ a{
     width: 570px;
     height: 500px;
     border-radius: 15px;
-
 }
 
  .banner_login {
@@ -325,8 +324,7 @@ a{
 }
 
 .span_login{
-    margin-top: 10px;
-    color: #FF9E01;
+    margin-top: 15px;
 }
 .card_login span{
     font-size: 14px;
