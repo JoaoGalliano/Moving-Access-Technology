@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+ body{
+     margin:0;
+     font-family: Poppins;
+ }
+ 
+ .header{
+     padding: 9px;
+     background-color: #141514;
+ 
+     
+ }
+ .header img{
+     height: 50px;
+ }
+ .container{
+     color:#FF4000;
+     display: flex;
+     justify-content: space-between;
+     
+ 
+     
+ }
+ .container ul {
+    
+     color:#fff;
+     display: flex;
+     width: 800px;
+     justify-content: space-evenly;
+     list-style: none;
+ }
+ 
+ .header .container{
+     
+  justify-content: space-around;
+  align-items: center;
+ }
+ ul a{
+         text-decoration: none;
+         color: #FFF;
+     }
+ 
+ 
+ a:hover {
+   color: #FF9E01;
+ }
+ a{
+     text-decoration: none;
+     color: #FFF;
+     
+ }
+ .container .login{
+   
+     padding: 5px 10px;
+     border: 1px solid #FF9E01;
+     border-radius: 10%;
+     margin-left: 25px;
+ 
+     }
+
+/* Estilização do conteudo do sobre nós */
+
+.conteudo{
+    height: 400px;
+    display: flex;
+}
+
+.conteudo .lado_esquerdo{
+    padding: 80px 50px;
+}
+
+.conteudo .lado_esquerdo .titulo{
+    color: #FF4000;
+    font-size: 45px;
+    text-align:center;
+   margin-top: -10px;
+}
+
+.conteudo .lado_esquerdo .subtitulo{
+    margin-top: -15px;
+    font-size: 20px;
+    text-align:center;
+
+}
+
+.conteudo .lado_direito{
+    padding: 80px 50px;
+  
+}
+
+.membros{
+    display: flex;
+    
+  
+}
+
+.membros .membro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+
+   
+}
+
+.membros img{
+    width: 100px;
+    border-radius: 100%;
+
+}
+.button{
+    font-family: Poppins;
+    margin-top: 10px;
+    border: 0;
+    font-weight: 600;
+    border-radius: 7px;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 10px;
+    background-color:#FF4000;
+    width: 30%;
+    margin-left: 34%;
+    cursor: pointer;
+    
+}
+.nome{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    font-size: 17px;
+    color: #029B99;
+    font-weight: 600;
+
+}
+.lado_esquerdo img{
+    padding: 0;
+    height: 100px;
+    margin-left: 223px; 
+ 
+}
+
