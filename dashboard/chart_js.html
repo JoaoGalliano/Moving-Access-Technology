@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+  <div class="header">
+    <div class="container">
+      <img src="images/LogoMATprojetoOrange.png">
+
+      <ul>
+
+        <li><a href="servicos.html">Gráficos</a></li>
+        <li><a href="sobreNos.html">Mural de Avisos</a></li>
+        <li><a href="sobreNos.html">Análisar</a></li>
+      </ul>
+
+      <div class="canto1">
+        <li><a href="#">Olá, Usuário</a></li>
+      </div>
+      <div class="canto">
+        <div class="login"> <li><a href="contato.html">Sair</a></li></div> 
+      </div>
+    </div>
+  </div>
+
+  
+  <div ></div>
+
+    
+      
+</body>
+
+<div class="regua">
+  
+  <div class="item-regua vagas-disponiveis">
+    
+      <h2>32</h2>
+      <h4>Vagas disponíveis</h4>
+  </div>
+  <div class="item-regua vagas-ocupadas">
+    
+      <h2>52</h2>
+      <h4>Vagas ocupadas</h4>
+  </div>
+  <div class="item-regua horario-pico">
+
+      <h2>60</h2>
+      <h4>Horário de pico</h4>
+  </div>
+  <div class="item-regua menor-fluxo">
+   
+      <h2>20</h2>
+      <h4>Menor fluxo</h4>
+  </div>
+
+<div class="graficos">
+
+<div class="grafico1">
+
+  <h2>Vagas Ocupadas</h2>
+  <canvas id="myChart" style="position: relative; height:40vh; width:40vw; display:flex;"></canvas>
+</div>
+<div class="grafico2">
+  
+  <h2>Fluxo de Pessoas</h2>
+  <canvas id="myChart2" style="position: relative; height:40vh; width:40vw; display:flex;" ></canvas>
+</div>
+</div>
+</div>
+
+<script>
+  
+    const labels2 = [
+      'Segunda-feira',
+      'Terça-feira',
+      'Quarta-feira',
+      'Quinta-feira',
+      'Sexta-feira',
+      'Sábado',
+      'Domingo',
+    ];
+  
+    const data2 = {
+      labels: labels2,
+      datasets: [{
+        label: 'Fluxo de Pessoas',
+        backgroundColor: '#FF4000',
+        borderColor: '#FF4000',
+        data: [340, 180, 210, 150, 190, 360,100],
+      
+    }]
+    };
+
+    const labels = [
+      '12:00',
+      '12:30',
+      '15:00',
+      '17:00',
+      '13:10',
+      '13:40',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Vagas Ocupadas',
+        backgroundColor: '#FF4000',
+        borderColor: '#FF4000',
+        data: [60, 50, 100, 38, 64, 20],
+      
+    }
+    ]
+    };
+  
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+    
+    
+}
+    };
+    const config2 = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
+  </script>
+  <script>
+    const myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+   
+  </script>
+  
+  
+</html>
