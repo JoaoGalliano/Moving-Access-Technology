@@ -1,106 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAT | Cadastro</title>
-    <link rel="stylesheet" href="css/simulador.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAT | Cadastro</title>
+  <link rel="stylesheet" href="css/simulador.css">
 </head>
+
 <body>
-    <body>
-        <div class="header">
-          <div class="container">
-            <img src="images/LogoMATprojetoOrange.png">
-    
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="servicos.html">Nossos Serviços</a></li>
-              <li class="agora"><a href="simulador.html">Simulador</a></li>
-              <li><a href="sobreNos.html">Sobre nós</a></li>
-              <li><a href="contato.html">Contato</a></li>
-              <li><a href="cadastro.html">Cadastre-se</a></li>
-              <li><a href="login.html">Login</a></li>
-            </ul>
-          </div>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <img src="images/LogoMATprojetoOrange.png">
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="servicos.html">Nossos Serviços</a></li>
+          <li class="agora"><a href="simulador.html">Simulador</a></li>
+          <li><a href="sobreNos.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="cadastro.html">Cadastre-se</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="principal" class="banner_simulador">
+      <div class="container">
+        <div class="card_simulador">
+          <h1 class="h1_simulador">Simule seus Ganhos</h1>
+
+          <h4 class="h4_simulador">Quanto seu estacionamento custa por mês?</h4>
+          <input id="ipt_aluguel" type="text" class="ipt" placeholder="Preço do aluguel por mês">
+
+          <h4 class="h4_simulador">Quantas vagas tem o seu estacionamento?</h4>
+          <input id="ipt_vagas" type="text" class="ipt" placeholder="Vagas do estacionamento">
+
+          <h4 class="h4_simulador">Qual o valor do seu estacionamento por hora?</h4>
+          <input id="ipt_preco" type="text" class="ipt" placeholder="Preço por hora">
+
+          <h4 class="h4_simulador">Quantas horas seu estacionamento permanece aberto por dia?</h4>
+          <input id="ipt_horas" type="text" class="ipt" placeholder="Horas de funcionamento">
+
+          <button onclick="calcular()" class="btn">Calcular</button>
         </div>
+      </div>
+    </div>
 
-        <div id="principal" class="banner_simulador">
-            <div class="container">
-                <div class="card_simulador">
-                    <h1 class="h1_simulador">Simule seus Ganhos</h1>
+    <!--Card resposta-->
 
-                    <h4 class="h4_simulador">Quanto seu estacionamento custa por mês?</h4>
-                    <input id="ipt_aluguel" type="text" class="ipt" placeholder="Preço do aluguel por mês">
+    <div id="all_opt" style="display: none; font-size: 14px;" class="banner_result">
 
-                    <h4 class="h4_simulador">Quantas vagas tem o seu estacionamento?</h4>
-                    <input id="ipt_vagas" type="text" class="ipt" placeholder="Vagas do estacionamento">
+      <div class="container">
 
-                    <h4 class="h4_simulador">Qual o valor do seu estacionamento por hora?</h4>
-                    <input id="ipt_preco" type="text" class="ipt" placeholder="Preço por hora">
+        <div class="card_result">
 
-                    <h4 class="h4_simulador">Quantas horas seu estacionamento permanece aberto por dia?</h4>
-                    <input id="ipt_horas" type="text" class="ipt" placeholder="Horas de funcionamento">
+          <span class="span_result">
+            Com <b id="opt_vagas_vazias"></b> vagas, sua renda é de <b id="opt_lucro_max" class="class_preju"></b> por
+            mês.
+            <br>
+            Já com a nossa solução, sua renda passa a ser de <b id="opt_lucro_max_solucao" class="class_lucro"></b> por
+            mês.
+            <br><br>
+            Hoje em dia, sua receita líquida, com o estacionamento cheio, é de <b id="opt_lucro_dono"
+              class="class_preju"></b>.
+            <br>
+            Já com a nossa solução, esse valor passa a ser de: <b id="opt_lucro_dono_solucao" class="class_lucro"></b>.
+          </span>
 
-                    <button onclick="calcular()" class="btn">Calcular</button>
-                </div>
-            </div>
-        </div>
-
-          <!--Card resposta-->
-
-        <div id="all_opt" style="display: none; font-size: 14px;" class="banner_result">
-
-          <div class="container">
-
-            <div class="card_result">
-            
-              <span class="span_result">
-                Com <b id="opt_vagas_vazias"></b> vagas, sua renda é de <b id="opt_lucro_max"
-                class="class_preju"></b> por mês.
-                <br>
-                Já com a nossa solução, sua renda passa a ser de <b id="opt_lucro_max_solucao" class="class_lucro"></b> por mês.
-                <br><br>
-                Hoje em dia, sua receita líquida, com o estacionamento cheio, é de <b id="opt_lucro_dono"
-                class="class_preju"></b>. 
-                <br>
-                Já com a nossa solução, esse valor passa a ser de: <b
-                id="opt_lucro_dono_solucao" class="class_lucro"></b>.
-              </span>
-              
 
           <button onclick="voltar()" class="btn_result">Voltar</button>
         </div><br>
 
-         
-        </div>
 
       </div>
-</body>
+
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+      <div class="container">
+        <h4>Mooving Access Tecnology SPTech &copy; 2022</h4>
+      </div>
+    </div>
+    <!--footer fim-->
+  </body>
+
 </html>
 
 <script>
 
-function calcular() {
-        var aluguel = Number(ipt_aluguel.value)
-        var vagas = Number(ipt_vagas.value)
-        var preco = Number(ipt_preco.value)
-        var horas = Number(ipt_horas.value)
-        var lucro_max = preco * vagas * horas
-        var lucro_max_solucao = lucro_max * 1.2
-        var conta = preco * vagas
-        principal.style.display="none"
-        all_opt.style.display = "block";
-        opt_vagas_vazias.innerHTML = `${vagas}`
-        opt_lucro_dono.innerHTML = `R$ ${((lucro_max * 30) - aluguel).toFixed(2)}`
-        opt_lucro_dono_solucao.innerHTML = `R$ ${(((lucro_max_solucao) * 30) - aluguel).toFixed(2)}`
-        opt_lucro_max.innerHTML = `R$ ${((lucro_max) * 30).toFixed(2)}`
-        opt_lucro_max_solucao.innerHTML = `R$ ${((lucro_max_solucao) * 30).toFixed(2)}`
-}
-function voltar(){
-  principal.style.display="block"
-  all_opt.style.display = "none"
-}
+  function calcular() {
+    var aluguel = Number(ipt_aluguel.value)
+    var vagas = Number(ipt_vagas.value)
+    var preco = Number(ipt_preco.value)
+    var horas = Number(ipt_horas.value)
+    var lucro_max = preco * vagas * horas
+    var lucro_max_solucao = lucro_max * 1.2
+    var conta = preco * vagas
+    principal.style.display = "none"
+    all_opt.style.display = "block";
+    opt_vagas_vazias.innerHTML = `${vagas}`
+    opt_lucro_dono.innerHTML = `R$ ${((lucro_max * 30) - aluguel).toFixed(2)}`
+    opt_lucro_dono_solucao.innerHTML = `R$ ${(((lucro_max_solucao) * 30) - aluguel).toFixed(2)}`
+    opt_lucro_max.innerHTML = `R$ ${((lucro_max) * 30).toFixed(2)}`
+    opt_lucro_max_solucao.innerHTML = `R$ ${((lucro_max_solucao) * 30).toFixed(2)}`
+  }
+  function voltar() {
+    principal.style.display = "block"
+    all_opt.style.display = "none"
+  }
 
 
 

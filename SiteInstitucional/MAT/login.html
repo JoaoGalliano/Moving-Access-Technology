@@ -1,45 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAT | Login</title>
-    <link rel="stylesheet" href="css/login.css">
- 
-   
-</head>
-<body>
-    <body>
-        <div class="header">
-          <div class="container">
-            <img src="images/LogoMATprojetoOrange.png">
-    
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="servicos.html">Nossos Serviços</a></li>
-              <li><a href="sobreNos.html">Sobre nós</a></li>
-              <li><a href="simulador.html">Simulador</a></li>
-              <li><a href="contato.html">Contato</a></li>
-              <li ><a href="cadastro.html">Cadastre-se</a></li>
-              <li class="agora"><a href="login.html">Login</a></li>
-            </ul>
-          </div>
-        </div>
 
-        <div class="banner_login">
-            <div class="container">
-                <div class="card_login">
-                    <h1 class="h1_login">Olá, seja bem-vindo(a)!</h1>
-                    <h4 class="h4_login">Email ou CNPJ:</h4>
-                    <input type="text" class="ipt" placeholder="Insira seu email ou CNPJ">
-                    <h4 class="h4_login">Senha:</h4>
-                    <input type="password" class="ipt" placeholder="Insira sua senha">
-                    <span class="span_login"> Esqueceu sua senha? </span>
-                    <span>Refazer Senha</span>
-                    <button class="btn">Enviar</button>
-                </div>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAT | Login</title>
+  <link rel="stylesheet" href="css/login.css">
+
+
+</head>
+
+<body>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <img src="images/LogoMATprojetoOrange.png">
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="servicos.html">Nossos Serviços</a></li>
+          <li><a href="sobreNos.html">Sobre nós</a></li>
+          <li><a href="simulador.html">Simulador</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="cadastro.html">Cadastre-se</a></li>
+          <li class="agora"><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="banner_login">
+      <div class="container">
+        <div class="card_login">
+          <h1 class="h1_login">Olá, seja bem-vindo(a)!</h1>
+          <h4 class="h4_login">Email:</h4>
+          <input type="text" class="ipt" placeholder="Insira seu email ou CNPJ">
+          <h4 class="h4_login">Senha:</h4>
+          <input type="password" class="ipt" placeholder="Insira sua senha">
+          <span class="span_login"> Esqueceu sua senha? </span>
+          <span>Refazer Senha</span>
+          <button class="btn">Enviar</button>
         </div>
-</body>
+      </div>
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+      <div class="container">
+        <h4>Mooving Access Tecnology SPTech &copy; 2022</h4>
+      </div>
+    </div>
+    <!--footer fim-->
+  </body>
+
 </html>
+
+<script>
+
+
+  function entrar() {
+      aguardar();
+
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+
+      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+      if (emailVar == "" || senhaVar == "") {
+          cardErro.style.display = "block"
+          mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+          finalizarAguardar();
+          return false;
+      }
+      else {
+          setInterval(sumirMensagem, 5000)
+      }
+
+      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+          cardErro.style.display = "block"
+          mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+          finalizarAguardar();
+          return false;
+      }
+      else {
+          setInterval(sumirMensagem, 5000)
+      }
+
+      console.log("FORM LOGIN: ", emailVar);
+      console.log("FORM SENHA: ", senhaVar);
+
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              emailServer: emailVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+
+                  sessionStorage.EMAIL_USUARIO = json.email;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.id;
+
+                  setTimeout(function () {
+                      window.location = "./dashboard/cards.html";
+                  }, 1000); // apenas para exibir o loading
+
+              });
+
+          } else {
+
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizarAguardar(texto);
+              });
+          }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
+
+      return false;
+  }
+
+  function sumirMensagem() {
+      cardErro.style.display = "none"
+  }
+
+</script>

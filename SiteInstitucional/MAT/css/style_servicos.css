@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
  body{
-     background-image: url(../images/asfalto.jpg);
-     background-size: auto;
+     background-image: url("../images/a.jpg");
+     background-size: cover;
      opacity: 100%;
      margin:0;
      font-family: Poppins;
