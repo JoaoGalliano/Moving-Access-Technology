@@ -1,66 +1,73 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
- body{
-     background-image: url("../images/a.jpg");
-     background-size: cover;
-     opacity: 100%;
-     margin:0;
-     font-family: Poppins;
- }
+body{
+    margin:0;
+    font-family: Poppins;
+}
 
- .header{
-     padding: 9px;
-     background-color: #141514;
- }
- .header img{
-     height: 50px;
- }
- .container{
-     color:#FF4000;
-     display: flex;
-     justify-content: space-between;
- }
- .container ul {
+.header{
+    padding: 9px;
+    background-color: #141514;
 
-     color:#fff;
-     display: flex;
-     width: 800px;
-     justify-content: space-evenly;
-     list-style: none;
- }
+    
+}
+.header img{
+    height: 50px;
+}
+.container{
+    color:#FF4000;
+    display: flex;
+    justify-content: space-between;
+    
 
- .header .container{
-  justify-content: space-around;
-  align-items: center;
- }
- ul a{
-         text-decoration: none;
-         color: #FFF;
-     }
+    
+}
+.container ul {
+   
+    color:#fff;
+    display: flex;
+    width: 800px;
+    justify-content: space-evenly;
+    list-style: none;
+}
 
- a:hover {
-   color: #FF9E01;
- }
- a{
-     text-decoration: none;
-     color: #FFF;
- }
- .container .login{
-     padding: 5px 10px;
-     border: 1px solid #FF9E01;
-     border-radius: 10%;
-     margin-left: 25px;
+.header .container{
+    
+ justify-content: space-around;
+ align-items: center;
+}
+ul a{
+        text-decoration: none;
+        color: #FFF;
+    }
 
-     }
+
+a:hover {
+  color: #FF9E01;
+}
+a{
+    text-decoration: none;
+    color: #FFF;
+    
+}
+.container .login{
+  
+    padding: 5px 10px;
+    border: 1px solid #FF9E01;
+    border-radius: 10%;
+    margin-left: 25px;
+
+    }
 
 
 /* SERVIÇOS */
 
 
 .corpo{
-    margin-top: 10px;
+    margin-top: 50px;
     height: 400px;
     display: flex;
+    
 }
 .corpo .esquerda{
     position: absolute;
@@ -79,8 +86,8 @@
 .conteudo {
     font-size: 20px;
     padding: 5px;
-    border-radius: 10px; color: white;
-    font-weight: bold;
+    border-radius: 10px; color: black;
+    
 }
 button{
     font-family: Poppins;
@@ -89,7 +96,7 @@ button{
     font-weight: 600;
     border-radius: 7px;
     font-size: 18px;
-    color: #fff;
+    color: black;
     padding: 10px 10px;
     background-color:#FF4000;
     width: 30%;
@@ -98,6 +105,7 @@ button{
 .img_estacionamento{
     margin-top: 10px;
     width: 95%;
+    border-radius: 30px;
 }
 .diagrama1 {
     display: flex;
@@ -105,15 +113,25 @@ button{
     width: 100vw;
 }
 .diagrama1 img {
-    margin-top: -60px;
-    width: 60vw;
+    margin-top: -50px;
+    width: 100vh;
 }
+
+.footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: #FFF;
+    background-color: white;
+    width: 100vw;
+   }
 
 /* SAIBA MAIS */
 
 
-.corpo_saibamais{
-    display: inline-flex
+.corpo_saibamais {
+    display: inline-flex;
     justify-content: center;
     margin: 150px;
 }
@@ -124,7 +142,7 @@ button{
 }
 .texto_saibamais{
     font-size: 20px;
-    border-radius: 10px; color: white;
+    border-radius: 10px; color: black;
     font-weight: bold;
 }
 .img_saibamais{
@@ -134,3 +152,4 @@ button{
     padding-bottom: 20px;
     margin-top: 20px;
 }
+     

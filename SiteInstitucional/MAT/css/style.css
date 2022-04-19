@@ -113,7 +113,14 @@ a{
     cursor: pointer;
    
 }
-
+.footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+   }
+     
+     
 
  
 
