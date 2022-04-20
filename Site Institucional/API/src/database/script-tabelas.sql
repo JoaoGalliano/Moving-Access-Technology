@@ -3,85 +3,70 @@
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /* para workbench - local - desenvolvimento */
+
 CREATE DATABASE MAT;
 USE MAT;
 
 CREATE TABLE Empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
-cnpj VARCHAR(45)
+cnpj VARCHAR(20)
 );
 
 CREATE TABLE Estacionamento (
-idEstacionamento INT,
-fkEmpresa INT,
-PRIMARY KEY (idEstacionamento, fkEmpresa),
-endereco VARCHAR(120),
+idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
+cep VARCHAR(40)
+bairro VARCHAR(45),
 numVagas INT,
+fkEmpresa INT,
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
 CREATE TABLE Administrador (
-idAdministrador INT,
-fkEmpresa INT,
-admChefe INT,
-PRIMARY KEY (idAdministrador, fkEmpresa, admChefe),
+idAdministrador INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 sobrenome VARCHAR(45),
 email VARCHAR(60),
 senha VARCHAR(45),
 fkEstacionamento INT,
+fkEmpresa INT,
+fkAdmChefe INT,
 FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
-FOREIGN KEY (admChefe) REFERENCES Administrador (idAdministrador)
+FOREIGN KEY (fkAdmChefe) REFERENCES Administrador (idAdministrador)
+);
+
+CREATE TABLE Administrador_Estacionamento (
+	fkAdministrador INT,
+	fkEstacionamento INT,
+	PRIMARY KEY (fkAdministrador, fkEstacionamento),
+	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
+	FOREIGN KEY (fkAdministrador) REFERENCES Administrador (idAdministrador)
 );
 
 CREATE TABLE Sensor (
-idSensor INT,
+idSensor  INT PRIMARY KEY AUTO_INCREMENT,
 fkEstacionamento INT,
 fkEmpresa INT,
-PRIMARY KEY (idSensor, fkEstacionamento, fkEmpresa),
-state TINYINT,
-entrada DATETIME,
-saida DATETIME,
 FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
 CREATE TABLE Dados (
 idDados INT,
+data DATE,
+hora TIME,
+state TINYINT,
 fkSensor INT,
 fkEstacionamento INT,
 fkEmpresa INT,
 PRIMARY KEY (idDados, fkSensor, fkEstacionamento, fkEmpresa),
-dataHora DATETIME,
 FOREIGN KEY (fkSensor) REFERENCES Sensor (idSensor),
 FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-/* para sql server - remoto - produção */
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-);
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
 
 
