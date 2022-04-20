@@ -90,7 +90,7 @@
    justify-content: center;
    margin: auto;
    width: 500px;
-   height: 560px;
+   height: 550px;
    border-radius: 15px;
     margin-top: 20px;
 }
@@ -128,9 +128,4 @@
     margin-bottom: 15px;
    
 }
-.footer {
-text-align: center;
-display: flex;
-justify-content: center;
-margin-top: 5px;
-}
+
