@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAT | Cadastro</title>
+  <link rel="stylesheet" href="css/cadastro.css">
+</head>
+
+<body>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <img src="images/LogoMATprojetoOrange.png">
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="servicos.html">Nossos Serviços</a></li>
+          <li><a href="simulador.html">Simulador</a></li>
+          <li><a href="sobreNos.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li class="agora"><a href="cadastro.html">Cadastre-se</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="banner_cadastro">
+      <div class="container">
+        <div class="card_cadastro">
+          <h1 class="h1_cadastro">Crie sua conta no MAT!</h1>
+
+          <h4 class="h4_cadastro">Email</h4>
+          <input id="email_input" type="text" class="ipt" placeholder="Insira seu email">
+
+          <h4 class="h4_cadastro">CNPJ</h4>
+          <input id="cnpj_input" type="text" class="ipt" placeholder="Insira seu CPNJ">
+
+          <h4 class="h4_cadastro">Senha:</h4>
+          <input id="senha_input" type="password" class="ipt" placeholder="Insira sua senha">
+
+          <h4 class="h4_cadastro">Confirmar senha:</h4>
+          <input id="confirmacao_senha_input" type="password" class="ipt" placeholder="Confirme sua senha">
+
+          <button class="btn" onclick="criar()">Criar</button>
+
+        </div>
+      </div>
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+      <div class="container">
+        <h4>Mooving Access Tecnology SPTech &copy; 2022</h4>
+      </div>
+    </div>
+    <!--footer fim-->
+
+  </body>
+
+</html>
+
+<script>
+  function criar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var emailVar = email_input.value;
+    var cnpjVar = cnpj_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 5000)
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 5000)
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 5000)
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        emailServer: emailVar,
+        cnpjServer: cnpjVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+        window.location = "login.html";
+        limparFormulario();
+        finalizarAguardar();
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      finalizarAguardar();
+    });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+
+</script>
