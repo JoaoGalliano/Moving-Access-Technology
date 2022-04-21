@@ -24,28 +24,28 @@ INSERT INTO Empresa (nome, cnpj) VALUES
 CREATE TABLE Estacionamento (
 	idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
 	cep VARCHAR(20),
-	endereco VARCHAR(60),
-	bairro VARCHAR(40),
-	cidade VARCHAR(35),
-	estado CHAR(2),
+	endereco VARCHAR(120),
+	-- bairro VARCHAR(40),
+	-- cidade VARCHAR(35),
+	-- estado CHAR(2),
 	numVagas INT,
 	fkEmpresa INT,
 	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-INSERT INTO Estacionamento (cep, endereco, bairro, cidade, estado, numVagas, fkEmpresa) VALUES 
+INSERT INTO Estacionamento (cep, endereco, numVagas, fkEmpresa) VALUES 
 -- id1:
-('01310916', 'Av. Paulista, 1374', 'Bela Vista', 'São Paulo', 'SP', 600, 1),
+('01310916', 'Av. Paulista, 1374 - Bela Vista, São Paulo - SP', 600, 1),
 -- id2:
-('01046001', 'Av. São Luís, 112', 'Republica', 'São Paulo', 'SP', 450, 1),
+('01046001', 'Av. São Luís, 112 - Republica, São Paulo - SP', 450, 1),
 -- id3:
-('01332000', 'R. Itapeva, 636', 'Bela Vista', 'São Paulo', 'SP', 200, 2),
+('01332000', 'R. Itapeva, 636 - Bela Vista, São Paulo - SP', 200, 2),
 -- id4:
-('01318000', 'Av. Brigadeiro Luís Antônio, 306', 'Bela Vista', 'São Paulo', 'SP', 300, 2),
+('01318000', 'Av. Brigadeiro Luís Antônio, 306 - Bela Vista, São Paulo - SP', 300, 2),
 -- id5:
-('01301000', 'R. da Consolação, 247', 'Consolação', 'São Paulo', 'SP', 400, 3),
+('01301000', 'R. da Consolação, 247 - Consolação, São Paulo - SP', 400, 3),
 -- id6:
-('01412000', 'R. Augusta, 1808', 'Cerqueira César', 'São Paulo', 'SP', 250, 3);
+('01412000', 'R. Augusta, 1808 - Cerqueira César, São Paulo - SP', 250, 3);
 
 
 -- Tabela Administrador [relação n:1 com Empresa]:
@@ -76,6 +76,7 @@ INSERT INTO Administrador (nome, sobrenome, email, senha, fkEmpresa, fkAdmChefe)
 -- id6: 
 ('Pedro', 'Gomes', 'Pedro@stoppark.com', 'G6P1YDq1', 3, 5);
 
+
 -- Tabela Administrador_Estacionamento [relação N:m Administrador_has_Estacionamento]:
 
 CREATE TABLE Administrador_Estacionamento (
@@ -100,6 +101,7 @@ INSERT INTO Administrador_Estacionamento (fkAdministrador, fkEstacionamento) VAL
 -- id6:
 (6, 6);
 
+
 -- Tabela Sensor [relação n:1 com Estacionamento]:
 
 CREATE TABLE Sensor (
@@ -114,33 +116,21 @@ INSERT INTO Sensor (fkEstacionamento, fkEmpresa) VALUES
 -- id1:
 (1, 1),
 -- id2:
-(1, 1),
+(2, 1),
 -- id3:
-(2, 1),
+(3, 2),
 -- id4:
-(2, 1),
+(4, 2),
 -- id5:
-(3, 2),
+(5, 3),
 -- id6:
-(3, 2),
--- id7:
-(4, 2),
--- id8:
-(4, 2),
--- id9:
-(5, 3),
--- id10:
-(5, 3),
--- id11:
-(6, 3),
--- id12:
 (6, 3);
 
 
 -- Tabela Dados [relação N:1 com Sensor]:
 
 CREATE TABLE Dados (
-	idDados INT,
+	idDados INT AUTO_INCREMENT,
 	data DATE,
 	hora TIME,
 	state TINYINT,
@@ -155,50 +145,42 @@ CREATE TABLE Dados (
 
 -- Quando a PK é composta podemos repetir elas no insert? E quando é FK?
 INSERT INTO Dados (data, hora, state, fkSensor, fkEstacionamento, fkEmpresa) VALUES 
--- [Entrada]: Sensor1/2, Estacionamento1, Empresa1
+-- id:1
+-- [Entrada]: Sensor1, Estacionamento1, Empresa1
 ('2022-04-26', '12:00:00', 1, 1, 1, 1),
-('2022-04-26', '12:00:00', 1, 2, 1, 1),
--- [Saída]: Sensor1/2, Estacionamento1, Empresa1
+-- id:2
+-- [Saída]: Sensor1, Estacionamento1, Empresa1
 ('2022-04-26', '13:00:00', 0, 1, 1, 1),
-('2022-04-26', '13:00:00', 0, 2, 1, 1),
-
--- [Entrada]: Sensor3/4, Estacionamento2, Empresa1
-('2022-04-26', '12:00:00', 1, 3, 2, 1),
-('2022-04-26', '12:00:00', 1, 4, 2, 1),
--- [Saída]: Sensor3/4, Estacionamento2, Empresa1
-('2022-04-26', '13:00:00', 0, 3, 2, 1),
-('2022-04-26', '13:00:00', 0, 4, 2, 1),
 
 
--- [Entrada]: Sensor5/6, Estacionamento3, Empresa2
-('2022-04-26', '12:00:00', 1, 5, 3, 2),
-('2022-04-26', '12:00:00', 1, 6, 3, 2),
--- [Saída]: Sensor5/6, Estacionamento3, Empresa2
-('2022-04-26', '13:00:00', 0, 5, 3, 2),
-('2022-04-26', '13:00:00', 0, 6, 3, 2),
-
--- [Entrada]: Sensor7/8, Estacionamento4, Empresa2
-('2022-04-26', '12:00:00', 1, 7, 4, 2),
-('2022-04-26', '12:00:00', 1, 8, 4, 2),
--- [Saída]: Sensor7/8, Estacionamento4, Empresa2
-('2022-04-26', '13:00:00', 0, 7, 4, 2),
-('2022-04-26', '13:00:00', 0, 8, 4, 2),
+-- [Entrada]: Sensor2, Estacionamento2, Empresa1
+('2022-04-26', '12:00:00', 1, 2, 2, 1),
+-- [Saída]: Sensor2, Estacionamento2, Empresa1
+('2022-04-26', '13:00:00', 0, 2, 2, 1),
 
 
--- [Entrada]: Sensor9/10, Estacionamento5, Empresa3
-('2022-04-26', '12:00:00', 1, 9, 5, 3),
-('2022-04-26', '12:00:00', 1, 10, 5, 3),
--- [Saída]: Sensor9/10, Estacionamento5, Empresa3
-('2022-04-26', '13:00:00', 0, 9, 5, 3),
-('2022-04-26', '13:00:00', 0, 10, 5, 3),
 
--- [Entrada]: Sensor11/12, Estacionamento6, Empresa3
-('2022-04-26', '12:00:00', 1, 11, 6, 3),
-('2022-04-26', '12:00:00', 1, 12, 6, 3),
--- [Saída]: Sensor11/12, Estacionamento6, Empresa3
-('2022-04-26', '13:00:00', 0, 11, 6, 3),
-('2022-04-26', '13:00:00', 0, 12, 6, 3);
+-- [Entrada]: Sensor3, Estacionamento3, Empresa2
+('2022-04-26', '12:00:00', 1, 3, 3, 2),
+-- [Saída]: Sensor3, Estacionamento3, Empresa2
+('2022-04-26', '13:00:00', 0, 3, 3, 2),
 
--- Selects:
 
-SELECT * FROM;
+-- [Entrada]: Sensor4, Estacionamento4, Empresa2
+('2022-04-26', '12:00:00', 1, 4, 4, 2),
+-- [Saída]: Sensor4, Estacionamento4, Empresa2
+('2022-04-26', '13:00:00', 0, 4, 4, 2),
+
+
+
+-- [Entrada]: Sensor5, Estacionamento5, Empresa3
+('2022-04-26', '12:00:00', 1, 5, 5, 3),
+-- [Saída]: Sensor5, Estacionamento5, Empresa3
+('2022-04-26', '13:00:00', 0, 5, 5, 3),
+
+-- [Entrada]: Sensor6, Estacionamento6, Empresa3
+('2022-04-26', '12:00:00', 1, 6, 6, 3),
+-- [Saída]: Sensor6, Estacionamento6, Empresa3
+('2022-04-26', '13:00:00', 0, 6, 6, 3);
+
+
