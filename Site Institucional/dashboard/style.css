@@ -9,6 +9,7 @@ body{
 .header{
     padding: 9px;
     background-color: #141514;
+  
 
     
 }
@@ -28,36 +29,25 @@ body{
 }
 
 .container ul {
-    color: #fff;
+
     display: flex;
     width: 800px;
     justify-content: space-evenly;
     list-style: none;
 }
-.canto1{
-      color: #fff;
-       display: flex;
-       justify-content: space-evenly;
-       list-style: none;
 
-    }
 
  .canto{
-      color: #fff;
-       display: flex;
-       justify-content: space-evenly;
-       list-style: none;
+    width: 200px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+       
        
     }
- .container .login{
    
-  
-    padding: 5px 10px;
-    border: 1px solid #FF9E01;
-    border-radius: 10%;
-    margin-left: 25px;
 
-    }
 
 .header .container{
     
@@ -74,11 +64,13 @@ ul a{
 
 
 a:hover {
-  color: #FF9E01;
+    color: #FF9E01;
 }
 a{
-    color: #FFF;
+   
+    list-style: none;
     text-decoration: none;
+    color: #FFF;
   
     
 }
@@ -91,6 +83,7 @@ a{
         display: flex;
         justify-content: center;
         padding: 20px;
+       
       
 
  
@@ -101,9 +94,12 @@ a{
     .grafico1{
         height: 100%;
         text-align: center;
+    
+        padding: 40px;
     }
     .grafico2{
         height: 100%;
+        padding: 40px;
         text-align: center;
     }
 
@@ -129,6 +125,7 @@ a{
     background-color: #FF4000;
     color: #fff;
     box-shadow: 1px 1px 0.2em #888;
+  
 }
 
 .horario-pico {
@@ -146,13 +143,63 @@ a{
 
 .item-regua {
   padding: 5px;
-  width: 15%;
+  width: 25%;
   margin: 25px;
   text-align: center;
   padding-top: 15px;
 
 
 }
+.item-regua2 {
+    padding: 5px;
+    width: 30%;
+    margin: 25px;
+    text-align: center;
+    padding-top: 15px;
+  
+  
+  }
+
+.cards {
+    margin-top: -100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 450px;
+    width: 100%;
+    align-items: center;
+    color: white;
+  }
+  
+  .card {
+    margin: 2%;
+    width: 42%;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+    height: 180px;
+    justify-content: right;
+    background-color: #212124;
+    font-size: 20px;
+    box-shadow: 1px 1px 0.3em #888;
+  }
+  
+  .card p {
+    margin: 20px;
+    font-size: 35px;
+    font-weight: lighter;
+    text-align: center;
+  }
+  
+  .cards h1 {
+    font-size: 22px;
+    width: 100%;
+    border-bottom: solid #FF4000 1px;
+    text-align: left;
+    font-weight: lighter;
+    margin: 20px;
+  }
+  
 
 
         
