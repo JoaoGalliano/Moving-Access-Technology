@@ -127,29 +127,5 @@ button{
     width: 100vw;
    }
 
-/* SAIBA MAIS */
 
-
-.corpo_saibamais {
-    display: inline-flex;
-    justify-content: center;
-    margin: 150px;
-}
-.titulo_saibamais{
-    margin-top: -60px;
-    font-size: 40px; color: #FF4000;
-    font-weight: bold;
-}
-.texto_saibamais{
-    font-size: 20px;
-    border-radius: 10px; color: black;
-    font-weight: bold;
-}
-.img_saibamais{
-    display: flex;
-    justify-content: center;
-    height: 700px;
-    padding-bottom: 20px;
-    margin-top: 20px;
-}
      
