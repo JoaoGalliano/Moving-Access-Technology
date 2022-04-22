@@ -32,11 +32,9 @@ INSERT INTO Empresa (nome, cnpj) VALUES
 
 CREATE TABLE Estacionamento (
 	idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
-	cep VARCHAR(20),
-	endereco VARCHAR(120),
-	-- bairro VARCHAR(40),
-	-- cidade VARCHAR(35),
-	-- estado CHAR(2),
+	cep INT,
+	numero INT,
+	uf VARCHAR(2),	
 	numVagas INT,
 	fkEmpresa INT,
 	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
@@ -47,31 +45,16 @@ CREATE TABLE Estacionamento (
 +------------------+--------------+------+-----+---------+----------------+
 | idEstacionamento | int          | NO   | PRI | NULL    | auto_increment |
 | cep              | varchar(20)  | YES  |     | NULL    |                |
-| endereco         | varchar(120) | YES  |     | NULL    |                |
+| Bairro           | varchar(60)  | YES  |     | NULL    |                |
+| uf               | varchar(2)   | YES  |     | NULL    |                |
 | numVagas         | int          | YES  |     | NULL    |                |
 | fkEmpresa        | int          | YES  | MUL | NULL    |                |
-+------------------+--------------+------+-----+---------+----------------+
-
-INSERT INTO Estacionamento (cep, endereco, numVagas, fkEmpresa) VALUES 
--- id1:
-('01310916', 'Av. Paulista, 1374 - Bela Vista, São Paulo - SP', 600, 1),
--- id2:
-('01046001', 'Av. São Luís, 112 - Republica, São Paulo - SP', 450, 1),
--- id3:
-('01332000', 'R. Itapeva, 636 - Bela Vista, São Paulo - SP', 200, 2),
--- id4:
-('01318000', 'Av. Brigadeiro Luís Antônio, 306 - Bela Vista, São Paulo - SP', 300, 2),
--- id5:
-('01301000', 'R. da Consolação, 247 - Consolação, São Paulo - SP', 400, 3),
--- id6:
-('01412000', 'R. Augusta, 1808 - Cerqueira César, São Paulo - SP', 250, 3);
-
-
++------------------+--------------+------+-----+---------+----------------+;
 
 -- Tabela Administrador [relação n:1 com Empresa]:
 
-CREATE TABLE Administrador (
-	idAdministrador INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Usuario (
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	sobrenome VARCHAR(45),
 	email VARCHAR(60),
@@ -79,13 +62,13 @@ CREATE TABLE Administrador (
 	fkEmpresa INT,
 	fkAdmChefe INT,
 	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
-	FOREIGN KEY (fkAdmChefe) REFERENCES Administrador (idAdministrador)
+	FOREIGN KEY (fkAdmChefe) REFERENCES Usuario (idUsuario)
 );
 
 +-----------------+-------------+------+-----+---------+----------------+
 | Field           | Type        | Null | Key | Default | Extra          |
 +-----------------+-------------+------+-----+---------+----------------+
-| idAdministrador | int         | NO   | PRI | NULL    | auto_increment |
+| idUsuario       | int         | NO   | PRI | NULL    | auto_increment |
 | nome            | varchar(45) | YES  |     | NULL    |                |
 | sobrenome       | varchar(45) | YES  |     | NULL    |                |
 | email           | varchar(60) | YES  |     | NULL    |                |
@@ -112,18 +95,18 @@ INSERT INTO Administrador (nome, sobrenome, email, senha, fkEmpresa, fkAdmChefe)
 
 -- Tabela Administrador_Estacionamento [relação N:m Administrador_has_Estacionamento]:
 
-CREATE TABLE Administrador_Estacionamento (
-	fkAdministrador INT,
+CREATE TABLE Usuario_Estacionamento (
+	fkUsuario INT,
 	fkEstacionamento INT,
 	PRIMARY KEY (fkAdministrador, fkEstacionamento),
-	FOREIGN KEY (fkAdministrador) REFERENCES Administrador (idAdministrador),
+	FOREIGN KEY (fkAdministrador) REFERENCES Usuario (idUsuario),
 	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento)
 );
 
 +------------------+------+------+-----+---------+-------+
 | Field            | Type | Null | Key | Default | Extra |
 +------------------+------+------+-----+---------+-------+
-| fkAdministrador  | int  | NO   | PRI | NULL    |       |
+| fkUsuario        | int  | NO   | PRI | NULL    |       |
 | fkEstacionamento | int  | NO   | PRI | NULL    |       |
 +------------------+------+------+-----+---------+-------+
 
@@ -258,10 +241,10 @@ SELECT * FROM Empresa;
 +-----------+-------------+----------------+
 
 
-SELECT * FROM Administrador;
+SELECT * FROM Usuario;
 
 +-----------------+--------+-------------+----------------------+----------+-----------+------------+
-| idAdministrador | nome   | sobrenome   | email                | senha    | fkEmpresa | fkAdmChefe |
+| idUsuario       | nome   | sobrenome   | email                | senha    | fkEmpresa | fkAdmChefe |
 +-----------------+--------+-------------+----------------------+----------+-----------+------------+
 |               1 | Karen  | Albuquerque | Karen@estapar.com    | IEX22dbI |         1 |       NULL |
 |               2 | Robert | Pereira     | Robert@estapar.com   | 5Switbxz |         1 |          1 |
@@ -272,24 +255,10 @@ SELECT * FROM Administrador;
 +-----------------+--------+-------------+----------------------+----------+-----------+------------+
 
 
-SELECT * FROM Estacionamento;
-
-+------------------+----------+---------------------------------------------------------------+----------+-----------+
-| idEstacionamento | cep      | endereco                                                      | numVagas | fkEmpresa |
-+------------------+----------+---------------------------------------------------------------+----------+-----------+
-|                1 | 01310916 | Av. Paulista, 1374 - Bela Vista, São Paulo - SP               |      600 |         1 |
-|                2 | 01046001 | Av. São Luís, 112 - Republica, São Paulo - SP                 |      450 |         1 |
-|                3 | 01332000 | R. Itapeva, 636 - Bela Vista, São Paulo - SP                  |      200 |         2 |
-|                4 | 01318000 | Av. Brigadeiro Luís Antônio, 306 - Bela Vista, São Paulo - SP |      300 |         2 |
-|                5 | 01301000 | R. da Consolação, 247 - Consolação, São Paulo - SP            |      400 |         3 |
-|                6 | 01412000 | R. Augusta, 1808 - Cerqueira César, São Paulo - SP            |      250 |         3 |
-+------------------+----------+---------------------------------------------------------------+----------+-----------+
-
-
-SELECT * FROM Administrador_Estacionamento;
+SELECT * FROM Usuario_Estacionamento;
 
 +-----------------+------------------+
-| fkAdministrador | fkEstacionamento |
+| fkUsuario       | fkEstacionamento |
 +-----------------+------------------+
 |               1 |                1 |
 |               2 |                2 |
@@ -334,12 +303,12 @@ SELECT * FROM Dados;
 +---------+------------+----------+-------+----------+------------------+-----------+
 
 
-SELECT CONCAT(Administrador.nome, " ", Administrador.sobrenome) AS Administrador, Administrador.email AS Email, 
-Administrador.senha AS Senha, CONCAT(AdmChefe.nome," ", AdmChefe.sobrenome) AS "Administrador Chefe" 
-FROM Administrador JOIN Administrador as AdmChefe ON Administrador.fkAdmChefe = AdmChefe.idAdministrador;
+SELECT CONCAT(Usuario.nome, " ", Usuario.sobrenome) AS Usuario, Usuario.email AS Email, 
+Usuario.senha AS Senha, CONCAT(AdmChefe.nome," ", AdmChefe.sobrenome) AS "Administrador Chefe" 
+FROM Usuario JOIN Usuario as AdmChefe ON Usuario.fkAdmChefe = AdmChefe.idUsuario;
 
 +----------------+----------------------+----------+---------------------+
-| Administrador  | Email                | Senha    | Administrador Chefe |
+| Usuario        | Email                | Senha    | Administrador Chefe |
 +----------------+----------------------+----------+---------------------+
 | Robert Pereira | Robert@estapar.com   | 5Switbxz | Karen Albuquerque   |
 | Monica Costa   | Monica@multipark.com | UKu7TF5d | Miguel Ferrari      |
@@ -426,4 +395,5 @@ JOIN Administrador ON Administrador.fkEmpresa = Empresa.idEmpresa JOIN Administr
 | Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura      |                 6 | R. Augusta, 1808 - Cerqueira César, São Paulo - SP            |         6 |                    1 | 2022-04-26 | 12:00:00 |
 | Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura      |                 5 | R. da Consolação, 247 - Consolação, São Paulo - SP            |         5 |                    0 | 2022-04-26 | 13:00:00 |
 | Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura      |                 5 | R. da Consolação, 247 - Consolação, São Paulo - SP            |         5 |                    1 | 2022-04-26 | 12:00:00 |
-+-----------------+----------------+----------------+---------------------+-------------------+---------------------------------------------------------------+-----------+----------------------+------------+----------+
++-----------------+----------------+----------------+---------------------+-------------------+---------------------------------------------------------------+-----------+----------------------+------------+----------+;
+
