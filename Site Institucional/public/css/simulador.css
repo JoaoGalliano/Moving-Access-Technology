@@ -103,10 +103,10 @@ a {
     justify-content: center;
     margin: auto;
     width: 580px;
-    height: 560px;
+    height: 550px;
     border: 2px solid #FF4000;
     border-radius: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .banner_simulador {

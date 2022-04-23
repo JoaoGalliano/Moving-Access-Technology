@@ -64,11 +64,11 @@ a{
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   justify-content: center;
+   /* justify-content: center; */
    /* margin: auto; */
-   margin-top: 20px;
-   width: 450px;
-   height: 560px;
+   margin-top: 15px;
+   width: 400px;
+   height: 440px;
    border-radius: 20px;
    padding: 50px;
 }
@@ -78,9 +78,15 @@ a{
    justify-content: flex-start;
    align-items: flex-start;
 } */
+ #ipt_msg{
+     height: 80px;
+     width: 380px;
+     border: 1px solid #FF4000;
+     border-radius: 4px;
+}
    .ipt {
-       height: 35px;
-       width: 400px;
+       /* height: 100px; */
+       width: 380px;
        border: 1px solid #FF4000;
        border-radius: 4px;
      }
@@ -100,7 +106,7 @@ a{
    .banner_contato{
        background-image: url("../images/bgSimulador.png");
        opacity: 0.9;
-       height: 700px;
+       height: 87vh;
        background-size: cover;     
    }
    h4{
