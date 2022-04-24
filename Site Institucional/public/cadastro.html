@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AcquaTec | Cadastro</title>
+    <title>Mooving Access | Cadastro</title>
 
 
     <script src="./js/funcoes.js"></script>
@@ -24,19 +24,20 @@
     <!--header inicio-->
     <div class="header">
         <div class="container">
-          <img src="images/LogoMATprojetoOrange.png">
-  
-          <ul>
-            <li class="agora"><a href="index.html">Home</a></li>
-            <li><a href="servicos.html">Nossos Serviços</a></li>
-            <li><a href="simulador.html">Simulador</a></li>
-            <li><a href="sobre_nos.html">Sobre nós</a></li>
-            <li><a href="contato.html">Contato</a></li>
-            <li><a href="cadastro.html">Cadastre-se</a></li>
-            <li class="login"><a href="login.html">Login</a></li>
-          </ul>
+            <img src="images/LogoMATprojetoOrange.png">
+
+            <ul>
+                <li class="agora"><a href="index.html">Home</a></li>
+                <li><a href="servicos.html">Nossos Serviços</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="sobre_nos.html">Sobre nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="cadastro.html">Cadastre-se</a></li>
+                <li>|</li>
+                <li class="login"><a href="login.html">Login</a></li>
+            </ul>
         </div>
-      </div>
+    </div>
     <!--header fim-->
 
 
@@ -113,32 +114,28 @@
         if (!isNaN(nome)) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Nome não pode conter números, digite seu nome novamente";
-    
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        } 
-        
-        /* if (senhaVar.lenght < 8) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Senha deve conter no mínimo 8 caracteres";
-    
-            finalizarAguardar();
-            return false;
-        } 
-        else {
-            setInterval(sumirMensagem, 5000)
-        } */
 
-        if (senhaVar.indexOf("@") == -1 || senhaVar.indexOf("!") == -1 || senhaVar.indexOf("#") == -1 || senhaVar.indexOf("$") == -1 || 
-            senhaVar.indexOf("%") == -1 || senhaVar.indexOf("&") == -1 || senhaVar.indexOf("*") == -1 || senhaVar.indexOf("(") == -1 || senhaVar.indexOf(")") == -1) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Senha deve conter caracteres especiais: !@#$%&*()";
             finalizarAguardar();
             return false;
         }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        /*var regex = /^(?=(?:.?[A-Z]){1})(?=(?:.?[0-9]){1})(?=(?:.?[!@#$%()+^&}{:;?.]){1})(?!.\s)[0-9a-zA-Z!@#$%;(){}+^&]*$/;*/
+
+        if (senhaVar.length < 8) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senha deve conter 8 caracteres";
+            finalizarAguardar();
+            return false;
+        }
+        /*else if (!regex.exec(senhaVar)) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senha deve conter 1 letra maiúscula, 1 número e 1 caractere especial.";
+            finalizarAguardar();
+            return false;
+        }*/
         else {
             setInterval(sumirMensagem, 5000)
         }
