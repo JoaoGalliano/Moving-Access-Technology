@@ -98,6 +98,7 @@
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
+        // Validações:
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
@@ -126,7 +127,7 @@
 
         if (senhaVar.length < 8) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Senha deve conter 8 caracteres";
+            mensagem_erro.innerHTML = "Senha deve conter 8 no mínimo caracteres";
             finalizarAguardar();
             return false;
         }
