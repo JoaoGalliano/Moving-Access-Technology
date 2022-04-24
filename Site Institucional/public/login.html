@@ -2,13 +2,13 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAT | Login</title>
-  <link rel="stylesheet" href="css/login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="./js/funcoes.js"></script>
+    <title>AcquaTec | Login</title>
+
+    <script src="./js/funcoes.js"></script>
 
     <link rel="icon" href="./assets/icon/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
@@ -16,129 +16,147 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
-
 </head>
 
 <body>
 
-  <body>
-    <div class="header">
-      <div class="container">
-        <img src="images/LogoMATprojetoOrange.png">
-        <ul>
-          <li class="agora"><a href="index.html">Home</a></li>
-          <li><a href="servicos.html">Nossos Serviços</a></li>
-          <li><a href="simulador.html">Simulador</a></li>
-          <li><a href="sobre_nos.html">Sobre nós</a></li>
-          <li><a href="contato.html">Contato</a></li>
-          <li><a href="cadastro.html">Cadastre-se</a></li>
-          <li class="login"><a href="login.html">Login</a></li>
-        </ul>
-      </div>
-    </div>
+    <!--Header-->
 
-    <div class="banner_login">
-      <div class="container">
-        <div class="card_login">
-          <h1 class="h1_login">Olá, seja bem-vindo(a)!</h1>
-          <h4 class="h4_login">Email:</h4>
-          <input id="email_input" type="text" class="ipt" placeholder="Insira seu email ou CNPJ">
-          <h4 class="h4_login">Senha:</h4>
-          <input id="senha_input" type="password" class="ipt" placeholder="Insira sua senha">
-          <span class="span_login"> Esqueceu sua senha? </span>
-          <span>Refazer Senha</span>
-          <button onclick="entrar()" class="btn">Enviar</button>
+    <div class="header">
+        <div class="container">
+          <img src="images/LogoMATprojetoOrange.png">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Nossos Serviços</a></li>
+            <li><a href="simulador.html">Simulador</a></li>
+            <li><a href="sobre_nos.html">Sobre nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="cadastro.html">Cadastre-se</a></li>
+            <li class="agora" class="login"><a href="login.html">Login</a></li>
+          </ul>
         </div>
       </div>
+
+
+    <div class="banner">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <h2>Bem vindo novamente!</h2>
+                <div class="formulario">
+
+
+                    <span class="tipo_campo">E-mail:</span>
+                    <input id="email_input" type="text" placeholder="Login">
+
+                    <span class="tipo_campo">Senha:</span>
+                    <input id="senha_input" type="password" placeholder="******">
+
+                    <button class="btn" onclick="entrar()">Entrar</button>
+
+
+                </div>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
     </div>
 
-
-  </body>
+</body>
 
 </html>
 
 <script>
 
 
-  function entrar() {
-    aguardar();
+    function entrar() {
+        aguardar();
 
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
 
-    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-    if (emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
-      finalizarAguardar();
-      return false;
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
-    else {
-      setInterval(sumirMensagem, 5000)
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
     }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-      finalizarAguardar();
-      return false;
-    }
-    else {
-      setInterval(sumirMensagem, 5000)
-    }
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      })
-    }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO entrar()!")
-
-      if (resposta.ok) {
-        console.log(resposta);
-
-        resposta.json().then(json => {
-          console.log(json);
-          console.log(JSON.stringify(json));
-
-          sessionStorage.EMAIL_USUARIO = json.email;
-          sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.ID_USUARIO = json.id;
-
-          setTimeout(function () {
-            window.location = "./MAT/dashboard.html";
-          }, 1000); // apenas para exibir o loading
-
-        });
-
-      } else {
-
-        console.log("Houve um erro ao tentar realizar o login!");
-
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-        });
-      }
-
-    }).catch(function (erro) {
-      console.log(erro);
-    })
-
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none"
-  }
 
 </script>

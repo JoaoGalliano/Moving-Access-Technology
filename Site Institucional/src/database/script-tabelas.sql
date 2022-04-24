@@ -3,66 +3,35 @@
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE MAT;
-USE MAT;
+CREATE DATABASE acquatec;
 
-CREATE TABLE Empresa (
-	idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(45),
-	cnpj VARCHAR(20)
+USE acquatec;
+
+CREATE TABLE usuario (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	email VARCHAR(50),
+	senha VARCHAR(50)
 );
 
-CREATE TABLE Estacionamento (
-	idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
-	cep INT,
-	numero INT,
-	uf VARCHAR(2),	
-	numVagas INT,
-	fkEmpresa INT,
-	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
+CREATE TABLE aviso (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100),
+    descricao VARCHAR(150),
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+); 
+
+CREATE TABLE medida (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	temperatura DECIMAL,
+	umidade DECIMAL,
+	momento DATETIME,
+	fk_aquario INT
 );
 
-CREATE TABLE Usuario (
-	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(45),
-	sobrenome VARCHAR(45),
-	email VARCHAR(60),
-	senha VARCHAR(45),
-	fkEmpresa INT,
-	fkAdmChefe INT,
-	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
-	FOREIGN KEY (fkAdmChefe) REFERENCES Usuario (idUsuario)
-);
 
-CREATE TABLE Usuario_Estacionamento (
-	fkUsuario INT,
-	fkEstacionamento INT,
-	PRIMARY KEY (fkAdministrador, fkEstacionamento),
-	FOREIGN KEY (fkAdministrador) REFERENCES Usuario (idUsuario),
-	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento)
-);
 
-CREATE TABLE Sensor (
-	idSensor  INT PRIMARY KEY AUTO_INCREMENT,
-	fkEstacionamento INT,
-	fkEmpresa INT,
-	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
-	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
-);
-
-CREATE TABLE Dados (
-	idDados INT AUTO_INCREMENT,
-	data DATE,
-	hora TIME,
-	state TINYINT,
-	fkSensor INT,
-	fkEstacionamento INT,
-	fkEmpresa INT,
-	PRIMARY KEY (idDados, fkSensor, fkEstacionamento, fkEmpresa),
-	FOREIGN KEY (fkSensor) REFERENCES Sensor (idSensor),
-	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
-	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
-);
 
 /* para sql server - remoto - produção */
 

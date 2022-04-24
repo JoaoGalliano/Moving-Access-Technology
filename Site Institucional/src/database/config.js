@@ -1,9 +1,3 @@
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-// process.env.AMBIENTE_PROCESSO = "producao";
-
-// process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-process.env.AMBIENTE_PROCESSO = "producao";
-
 var mysql = require("mysql2");
 var sql = require('mssql');
 
@@ -27,7 +21,7 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     user: "root",
-    database: "mat",
+    database: "acquatec",
     password: "19921124Ms@",
 };
 
