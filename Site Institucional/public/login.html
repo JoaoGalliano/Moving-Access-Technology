@@ -96,6 +96,24 @@
             setInterval(sumirMensagem, 5000)
         }
 
+        /*var regex = /^(?=(?:.?[A-Z]){1})(?=(?:.?[0-9]){1})(?=(?:.?[!@#$%()+^&}{:;?.]){1})(?!.\s)[0-9a-zA-Z!@#$%;(){}+^&]*$/;*/
+
+        if (senhaVar.length < 8) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senha deve conter no mínimo 8 caracteres";
+            finalizarAguardar();
+            return false;
+        }
+        /*else if (!regex.exec(senhaVar)) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senha deve conter 1 letra maiúscula, 1 número e 1 caractere especial.";
+            finalizarAguardar();
+            return false;
+        }*/
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
