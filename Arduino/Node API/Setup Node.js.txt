@@ -1,0 +1,16 @@
+Com o CMD aberto podemos executar - 
+
+npm install (instala os pacotes necessários)
+
+npm start (inicia o servidor node)
+
+Ctrl + C (interrompe o processo)
+
+
+
+------Com o servidor rodando podemos executar------
+
+netstat -ano (Comando netstat exibe estatísticas de protocolo e conexões de redes TCP/IP atuais. Parâmetro -a : Exibe todas as conexões e portas de escuta. Parâmetro -n : Exibe endereços e número de portas no formato numérico. Parâmetro -o : Exibe a ID do processo proprietário associado à cada conexão)
+
+taskkill /PID <nº ID> /F (taskkill finalizar tarefas por identificação de processo (PID) ou nome de imagem. Parâmetro /PID : especifica o PID do processo a ser finalizado. Parâmetro /F : Especifica a finalização forçada do(s) processo(s))
+
