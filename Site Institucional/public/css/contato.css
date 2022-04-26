@@ -1,72 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
-
-body{
-    margin:0;
-    font-family: Poppins;
-}
-
-.header{
-    padding: 9px;
-    background-color: #141514;
-
-    
-}
-.header img{
-    height: 50px;
-}
-.container{
-    color:#FF4000;
-    display: flex;
-    justify-content: space-around;
-}
-.container ul {
-   
-    color:#fff;
-    display: flex;
-    width: 800px;
-    justify-content: space-evenly;
-    list-style: none;
-}
-
-.header .container{
-    
- justify-content: space-around;
- align-items: center;
-}
-ul a{
-        text-decoration: none;
-        color: #FFF;
-    }
-
-
-a:hover {
-  color: #FF9E01;
-}
-a{
-    text-decoration: none;
-    color: #FFF;
-    
-}
-.container .login{
-  
-    padding: 5px 10px;
-    border: 1px solid #FF9E01;
-    border-radius: 10%;
-    margin-left: 25px;
-
-    }
-
 /* ESTILIZANDO A PAGINA DE CONTATO */
 
 
 .container .card{
-    background-color:rgba(255,255, 255, 0.877);
+   background-color:black;
+   border: #FF4000 2px solid;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   /* justify-content: center; */
-   /* margin: auto; */
+   justify-content: center;
+   justify-items: center;
    margin-top: 15px;
+   margin-right: 90px;
    width: 400px;
    height: 440px;
    border-radius: 20px;
@@ -79,20 +23,23 @@ a{
    align-items: flex-start;
 } */
  #ipt_msg{
-     height: 80px;
+     height: 60px;
      width: 380px;
      border: 1px solid #FF4000;
      border-radius: 4px;
+     margin-bottom: 2px;
 }
    .ipt {
-       /* height: 100px; */
+       /* height: 100px;  */
        width: 380px;
        border: 1px solid #FF4000;
        border-radius: 4px;
-     }
+       }
+
      .btnContato{
+      margin-left: 128px;
        font-family: Poppins;
-       margin-top: 10px;
+       margin-bottom: 40px;
        border: 0;
        font-weight: 600;
        border-radius: 10px;
@@ -117,6 +64,8 @@ a{
    margin-left: 5%;
 } */
 .txt {
+   
+   margin-left: 120px;
    display: flex;
    justify-content: center;
    flex-direction: column;

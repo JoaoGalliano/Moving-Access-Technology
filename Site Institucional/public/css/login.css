@@ -1,0 +1,36 @@
+/* LOGIN */
+.tipo_campo{
+  color: #FF9E01;
+}
+.banner .container .card {
+    background-color:black;
+    border:#FF4000 2px solid; 
+    height: fit-content;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: #FF4000;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .card h2 {
+    font-size: 30px;
+  }
+  
+  .card h4 {
+    font-size: 16px;
+  }
+  
+  .banner #div_erros_login {
+    margin-top: 15px;
+  }
+  
+  button {
+    cursor: pointer;
+  }

@@ -40,8 +40,6 @@ CREATE TABLE Estacionamento (
 	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-//
-
 INSERT INTO Estacionamento (cep, numero, uf, numVagas, fkEmpresa) VALUES 
 -- id1:
 (01310916, 1374, 'SP', 600, 1),
@@ -248,7 +246,16 @@ SELECT * FROM Empresa;
 
 SELECT * FROM Estacionamento;
 
-//
++------------------+---------+--------+------+----------+-----------+
+| idEstacionamento | cep     | numero | uf   | numVagas | fkEmpresa |
++------------------+---------+--------+------+----------+-----------+
+|                1 | 1310916 |   1374 | SP   |      600 |         1 |
+|                2 | 1046001 |    112 | SP   |      450 |         1 |
+|                3 | 1332000 |    636 | SP   |      200 |         2 |
+|                4 | 1318000 |    306 | SP   |      300 |         2 |
+|                5 | 1301000 |    247 | SP   |      400 |         3 |
+|                6 | 1412000 |   1808 | SP   |      250 |         3 |
++------------------+---------+--------+------+----------+-----------+
 
 
 SELECT * FROM Usuario;
@@ -317,13 +324,28 @@ SELECT CONCAT(Usuario.nome, " ", Usuario.sobrenome) AS Usuario, Usuario.email AS
 Usuario.senha AS Senha, CONCAT(AdmChefe.nome," ", AdmChefe.sobrenome) AS Administrador
 FROM Usuario JOIN Usuario as AdmChefe ON Usuario.fkAdmChefe = AdmChefe.idUsuario;
 
-//
++----------------+----------------------+----------+-------------------+
+| Usuario        | Email                | Senha    | Administrador     |
++----------------+----------------------+----------+-------------------+
+| Robert Pereira | Robert@estapar.com   | 5Switbxz | Karen Albuquerque |
+| Monica Costa   | Monica@multipark.com | UKu7TF5d | Miguel Ferrari    |
+| Pedro Gomes    | Pedro@stoppark.com   | G6P1YDq1 | Alice Nakamura    |
++----------------+----------------------+----------+-------------------+
 
 
-//SELECT Estacionamento.idEstacionamento AS "Nº Estacionamento", Estacionamento.cep AS CEP, Estacionamento.endereco AS Endereço, Empresa.nome AS Empresa, Empresa.cnpj AS CNPJ 
+SELECT Estacionamento.idEstacionamento AS "Nº Estacionamento", Estacionamento.cep AS CEP, Estacionamento.numero AS "Numero", Empresa.nome AS Empresa, Empresa.cnpj AS CNPJ 
 FROM Estacionamento JOIN Empresa ON fkEmpresa = idEmpresa;
 
-//
++-------------------+---------+--------+-------------+----------------+
+| Nº Estacionamento | CEP     | Numero | Empresa     | CNPJ           |
++-------------------+---------+--------+-------------+----------------+
+|                 1 | 1310916 |   1374 | Estapar     | 72423437000149 |
+|                 2 | 1046001 |    112 | Estapar     | 72423437000149 |
+|                 3 | 1332000 |    636 | MultiPark   | 31985344000120 |
+|                 4 | 1318000 |    306 | MultiPark   | 31985344000120 |
+|                 5 | 1301000 |    247 | Stop & Park | 57410487000106 |
+|                 6 | 1412000 |   1808 | Stop & Park | 57410487000106 |
++-------------------+---------+--------+-------------+----------------+
 
 
 SELECT Sensor.idSensor AS "Nº Sensor", Dados.state AS "Entra = 1 /Saida = 0", Dados.data AS Data, Dados.hora AS Hora 
@@ -347,18 +369,48 @@ FROM Sensor JOIN Dados ON fkSensor = idSensor;
 +-----------+----------------------+------------+----------+
 
 
-//SELECT Empresa.nome AS "Nome da Empresa", Empresa.cnpj AS CNPJ, Estacionamento.idEstacionamento AS "Nº Estacionamento", Estacionamento.endereco AS "Endereço", 
+SELECT Empresa.nome AS "Nome da Empresa", Empresa.cnpj AS CNPJ, Estacionamento.idEstacionamento AS "Nº Estacionamento", Estacionamento.numero AS "Numero", 
 Sensor.idSensor AS "Nº Sensor", Dados.state AS "Entra = 1 /Saida = 0", Dados.data AS "Data", Dados.hora AS Hora  
 FROM Dados JOIN Empresa ON fkEmpresa = idEmpresa JOIN Estacionamento ON fkEstacionamento = idEstacionamento JOIN Sensor ON fkSensor = idSensor;  
 
-//
++-----------------+----------------+-------------------+--------+-----------+----------------------+------------+----------+
+| Nome da Empresa | CNPJ           | Nº Estacionamento | Numero | Nº Sensor | Entra = 1 /Saida = 0 | Data       | Hora     |  
++-----------------+----------------+-------------------+--------+-----------+----------------------+------------+----------+  
+| Estapar         | 72423437000149 |                 1 |   1374 |         1 |                    1 | 2022-04-26 | 12:00:00 |  
+| Estapar         | 72423437000149 |                 1 |   1374 |         1 |                    0 | 2022-04-26 | 13:00:00 |  
+| Estapar         | 72423437000149 |                 2 |    112 |         2 |                    1 | 2022-04-26 | 12:00:00 |  
+| Estapar         | 72423437000149 |                 2 |    112 |         2 |                    0 | 2022-04-26 | 13:00:00 |  
+| MultiPark       | 31985344000120 |                 3 |    636 |         3 |                    1 | 2022-04-26 | 12:00:00 |  
+| MultiPark       | 31985344000120 |                 3 |    636 |         3 |                    0 | 2022-04-26 | 13:00:00 |  
+| MultiPark       | 31985344000120 |                 4 |    306 |         4 |                    1 | 2022-04-26 | 12:00:00 |
+| MultiPark       | 31985344000120 |                 4 |    306 |         4 |                    0 | 2022-04-26 | 13:00:00 |  
+| Stop & Park     | 57410487000106 |                 5 |    247 |         5 |                    1 | 2022-04-26 | 12:00:00 |  
+| Stop & Park     | 57410487000106 |                 5 |    247 |         5 |                    0 | 2022-04-26 | 13:00:00 |  
+| Stop & Park     | 57410487000106 |                 6 |   1808 |         6 |                    1 | 2022-04-26 | 12:00:00 |  
+| Stop & Park     | 57410487000106 |                 6 |   1808 |         6 |                    0 | 2022-04-26 | 13:00:00 |
++-----------------+----------------+-------------------+--------+-----------+----------------------+------------+----------+ 
 
 
-//SELECT Empresa.nome AS "Nome da Empresa", Empresa.cnpj AS CNPJ, CONCAT(Administrador.nome, " ", Administrador.sobrenome) AS Administrador,
-CONCAT(AdmChefe.nome," ", AdmChefe.sobrenome) AS "Administrador Chefe", Estacionamento.idEstacionamento AS "Nº Estacionamento",
-Estacionamento.endereco AS Endereço, Sensor.idSensor AS "Nº Sensor", Dados.state AS "Entra = 1 /Saida = 0", Dados.data AS Data, Dados.hora AS Hora  
+SELECT Empresa.nome AS "Nome da Empresa", Empresa.cnpj AS CNPJ, CONCAT(Usuario.nome, " ", Usuario.sobrenome) AS Usuario,
+CONCAT(AdmChefe.nome," ", AdmChefe.sobrenome) AS "Usuario Chefe", Estacionamento.idEstacionamento AS "Nº Estacionamento",
+Estacionamento.cep AS CEP, Estacionamento.numero AS Numero, Sensor.idSensor AS "Nº Sensor", Dados.state AS "Entra = 1 /Saida = 0", Dados.data AS Data, Dados.hora AS Hora  
 FROM Dados JOIN Empresa ON fkEmpresa = idEmpresa JOIN Estacionamento ON fkEstacionamento = idEstacionamento JOIN Sensor ON fkSensor = idSensor 
-JOIN Administrador ON Administrador.fkEmpresa = Empresa.idEmpresa JOIN Administrador as AdmChefe ON Administrador.fkAdmChefe = AdmChefe.idAdministrador;
+JOIN Usuario ON Usuario.fkEmpresa = Empresa.idEmpresa JOIN Usuario as AdmChefe ON Usuario.fkAdmChefe = AdmChefe.idUsuario;
 
-//
++-----------------+----------------+----------------+-------------------+-------------------+---------+--------+-----------+----------------------+------------+----------+
+| Nome da Empresa | CNPJ           | Usuario        | Usuario Chefe     | Nº Estacionamento | CEP     | Numero | Nº Sensor | Entra = 1 /Saida = 0 | Data       | Hora     |
++-----------------+----------------+----------------+-------------------+-------------------+---------+--------+-----------+----------------------+------------+----------+
+| Estapar         | 72423437000149 | Robert Pereira | Karen Albuquerque |                 2 | 1046001 |    112 |         2 |                    0 | 2022-04-26 | 13:00:00 |
+| Estapar         | 72423437000149 | Robert Pereira | Karen Albuquerque |                 2 | 1046001 |    112 |         2 |                    1 | 2022-04-26 | 12:00:00 |
+| Estapar         | 72423437000149 | Robert Pereira | Karen Albuquerque |                 1 | 1310916 |   1374 |         1 |                    0 | 2022-04-26 | 13:00:00 |
+| Estapar         | 72423437000149 | Robert Pereira | Karen Albuquerque |                 1 | 1310916 |   1374 |         1 |                    1 | 2022-04-26 | 12:00:00 |
+| MultiPark       | 31985344000120 | Monica Costa   | Miguel Ferrari    |                 4 | 1318000 |    306 |         4 |                    0 | 2022-04-26 | 13:00:00 |
+| MultiPark       | 31985344000120 | Monica Costa   | Miguel Ferrari    |                 4 | 1318000 |    306 |         4 |                    1 | 2022-04-26 | 12:00:00 |
+| MultiPark       | 31985344000120 | Monica Costa   | Miguel Ferrari    |                 3 | 1332000 |    636 |         3 |                    0 | 2022-04-26 | 13:00:00 |
+| MultiPark       | 31985344000120 | Monica Costa   | Miguel Ferrari    |                 3 | 1332000 |    636 |         3 |                    1 | 2022-04-26 | 12:00:00 |
+| Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura    |                 6 | 1412000 |   1808 |         6 |                    0 | 2022-04-26 | 13:00:00 |
+| Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura    |                 6 | 1412000 |   1808 |         6 |                    1 | 2022-04-26 | 12:00:00 |
+| Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura    |                 5 | 1301000 |    247 |         5 |                    0 | 2022-04-26 | 13:00:00 |
+| Stop & Park     | 57410487000106 | Pedro Gomes    | Alice Nakamura    |                 5 | 1301000 |    247 |         5 |                    1 | 2022-04-26 | 12:00:00 |
++-----------------+----------------+----------------+-------------------+-------------------+---------+--------+-----------+----------------------+------------+----------+
 
