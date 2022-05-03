@@ -69,16 +69,16 @@
       <div class="card_result">
 
         <span class="span_result">
-          Com <b id="opt_vagas_vazias"></b> vagas, sua renda é de <b id="opt_lucro_max" class="class_preju"></b> por
-          mês.
-          <br>
-          Já com a nossa solução, sua renda passa a ser de <b id="opt_lucro_max_solucao" class="class_lucro"></b> por
-          mês.
+          Com <b id="opt_vagas_vazias"></b> vagas, sua renda é em média de <b id="opt_lucro_50" class="class_preju"></b> por
+          mês. <br>(Considerando uma média de 50% de ocupação durante todo o período).
           <br><br>
-          Hoje em dia, sua receita líquida, com o estacionamento cheio, é de <b id="opt_lucro_dono"
+          Sua receita líquida atual, após os descontos mensais, é de <b id="opt_lucro_dono"
             class="class_preju"></b>.
-          <br>
-          Já com a nossa solução, esse valor passa a ser de: <b id="opt_lucro_dono_solucao" class="class_lucro"></b>.
+          <br><br>
+          Já com a <i><b>nossa solução</b></i>, sua renda passa a ser de <b id="opt_lucro_50_solucao" class="class_lucro"></b> por
+          mês.<br> (Ou seja, sua ocupação média diária passa a ser de até 70%).
+          <br><br>
+          Então, sua receita líquida após a implementação da nossa solução passa a ser: <b id="opt_lucro_dono_solucao" class="class_lucro"></b>.
         </span>
 
 
@@ -97,20 +97,22 @@
 <script>
 
     function calcular() {
-      var aluguel = Number(ipt_aluguel.value)
+      var aluguel = Number(ipt_aluguel.value) * 3
       var vagas = Number(ipt_vagas.value)
       var preco = Number(ipt_preco.value)
       var horas = Number(ipt_horas.value)
-      var lucro_max = preco * vagas * horas
-      var lucro_max_solucao = lucro_max * 1.2
+      var lucro_50 = (preco * vagas * horas) * 0.5
+      var lucro_50_solucao = lucro_50 * 1.2
       var conta = preco * vagas
+      
+
       principal.style.display = "none"
       all_opt.style.display = "block";
       opt_vagas_vazias.innerHTML = `${vagas}`
-      opt_lucro_dono.innerHTML = `R$ ${((lucro_max * 30) - aluguel).toFixed(2)}`
-      opt_lucro_dono_solucao.innerHTML = `R$ ${(((lucro_max_solucao) * 30) - aluguel).toFixed(2)}`
-      opt_lucro_max.innerHTML = `R$ ${((lucro_max) * 30).toFixed(2)}`
-      opt_lucro_max_solucao.innerHTML = `R$ ${((lucro_max_solucao) * 30).toFixed(2)}`
+      opt_lucro_dono.innerHTML = `R$ ${((lucro_50 * 30) - (aluguel)).toFixed(2)}`
+      opt_lucro_dono_solucao.innerHTML = `R$ ${(((lucro_50_solucao) * 30) - (aluguel)).toFixed(2)}`
+      opt_lucro_50.innerHTML = `R$ ${((lucro_50) * 30).toFixed(2)}`
+      opt_lucro_50_solucao.innerHTML = `R$ ${((lucro_50_solucao) * 30).toFixed(2)}`
     }
     function voltar() {
       principal.style.display = "block"
