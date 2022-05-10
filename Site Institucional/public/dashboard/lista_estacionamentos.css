@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+
+body{
+
+    margin:0;
+    font-family: Poppins;
+}
+
+.header{
+    padding: 9px;
+    background-color: #141514;
+  
+
+    
+}
+.header img{
+    height: 50px;
+
+ 
+}
+.container{
+    text-decoration: none;      
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+    
+    
+}
+
+.container ul {
+
+    display: flex;
+    width: 800px;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+
+ .canto{
+    width: 200px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+       
+       
+    }
+   
+
+
+.header .container{
+    
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul a{
+        text-decoration: none;
+        color: #FFF;
+        
+ 
+    }
+
+
+a:hover {
+    color: #FF9E01;
+}
+a{
+   
+    list-style: none;
+    text-decoration: none;
+    color: #FFF;
+  
+    
+}
+.container{
+    display: flex; 
+    justify-content: space-evenly;
+}
+.filha{
+    background-color: black;
+    color:white;
+    width:190px;
+    height: 150px;
+    border-radius:20px;
+    margin: 20px;
+    padding: 25px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center
+}
+.card{
+    display: flex;
+    flex-direction: column;
+}
