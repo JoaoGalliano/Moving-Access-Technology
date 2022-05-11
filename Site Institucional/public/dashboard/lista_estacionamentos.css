@@ -10,6 +10,7 @@ body{
 .header{
     padding: 9px;
     background-color: #141514;
+
   
 
     
@@ -82,16 +83,19 @@ a{
 .filha{
     background-color: black;
     color:white;
-    width:190px;
+    width:200px;
     height: 150px;
     border-radius:20px;
-    margin: 20px;
+    margin: 25px;
     padding: 25px;
     justify-content: center;
     flex-direction: row;
-    align-items: center
+    align-items: center;
 }
 .card{
     display: flex;
     flex-direction: column;
+    margin: 5px;
+
+    
 }
