@@ -96,11 +96,11 @@ font-weight: 600;
 .filha{
     background-color: black;
     color:white;
-    width:200px;
-    height: 150px;
+    width:270px;
+    height: 180px;
     border-radius:20px;
-    margin: 25px;
-    padding: 25px;
+    margin-top: 40px;
+    padding: 30px;
     justify-content: center;
     flex-direction: row;
     align-items: center;
@@ -108,8 +108,10 @@ font-weight: 600;
 .card{
     display: flex;
     flex-direction: column;
-    margin: 5px;
-    width: 14vw;
+}
+
+.card span{
+  padding: 5px;
 }
 
 .titulo{
