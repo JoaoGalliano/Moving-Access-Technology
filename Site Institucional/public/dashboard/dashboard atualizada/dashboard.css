@@ -451,14 +451,14 @@ nav .adm .nome{
            /* ================================= ESTILIZANDO OS ANALYTICS ===================================*/
       .card{
         margin-left: 96%;
-        margin-top: -130%;
+        margin-top: -133%;
         background-color: #000000;
         flex-direction: column;
         display:flex;
         justify-content: space-between;
         padding: 90px;
         width: 50%;
-        height: 26%;
+        height: 30%;
        color: #fff;
        border-radius: 10px;
        box-shadow: 1px 1px 0.2em #888;
@@ -489,6 +489,14 @@ nav .adm .nome{
   margin-left: 1px;
   display:inline-block;
 }
+
+.cuidado .texto3{
+  padding: 10px;
+  margin-top: -5px;
+  text-align:justify;
+  margin-left: 1px;
+  display:inline-block;
+}
   .card .critico .circulo_red{
     margin-top: 10px;
     border-radius: 100%;
@@ -508,8 +516,17 @@ nav .adm .nome{
     border-radius: 100%;
     width: 30px;
     height: 30px;
-    background-color: #0077ff;
+    background-color: #8F00FF;
     display:inline-block;
+    
+  }
+  .card .circulo_yellow{
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    display:inline-block;
+    
   }
   .critico .hora{
     padding: 10px;
@@ -526,6 +543,13 @@ nav .adm .nome{
     display:inline-block;
   }
   .lotacao .hora{
+    padding: 10px;
+    margin-top: 5px;
+    text-align:justify;
+    margin-left: 140px;
+    display:inline-block;
+  }
+  .cuidado .hora{
     padding: 10px;
     margin-top: 5px;
     text-align:justify;
@@ -555,6 +579,16 @@ nav .adm .nome{
     height: 60px;
     margin-left: -30%;
     display: flex;
+    /* background-color: #00ff00; */
+  }
+  .cuidado {
+    margin-top: 10%;
+    border-bottom: 1px solid #8b8b8b;
+    width: 310px;
+    height: 60px;
+    margin-left: -30%;
+    display: flex;
+    /* background-color: #00ff00; */
   }
 
        /* ================================= FIM DOS ANALYTICS ===================================*/
@@ -570,7 +604,7 @@ nav .adm .nome{
     justify-content: space-between;
     padding: 90px;
     width: 50%;
-    height: 29%;
+    height: 26%;
    color: #fff;
    box-shadow: 1px 1px 0.2em #888;
    border-radius: 10px;
@@ -651,14 +685,14 @@ nav .adm .nome{
 /* ================================= ESTILIZANDO AS KPIS DE FLUXO ===================================*/
 .fluxo{
   margin-left: 96%;
-  margin-top: 5%;
+  margin-top: 3%;
   background-color: #000000;
   flex-direction: column;
   display:flex;
   justify-content: space-between;
   padding: 90px;
   width: 50%;
-  height: 23%;
+  height: 20%;
  color: #fff;
  box-shadow: 1px 1px 0.2em #888;
  border-radius: 10px;

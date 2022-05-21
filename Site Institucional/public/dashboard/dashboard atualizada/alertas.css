@@ -361,94 +361,111 @@ nav .adm .nome{
 
     /* ================================== ESTILIZANDO O GRAFICO ======================================== */
     .conteudos{
-        height: 10%;
-        width: 50%;
-        display: flex;
-        margin-left: 10%;
-        margin-top: 10%;
+      height: 10%;
+      width: 50%;
+      display: flex;
+      margin-left: 10%;
+      margin-top: 10%;
+  }
+  .titulo{
+      display: inline;
+      font-size: 18px;
+      color: #ff4000;
+      font-weight: bolder;
+      text-decoration: underline;
+      text-decoration-color: black;
+      
+  }
+  .alertas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin-top: -90px;
+      margin-left: -25%;
+     
     }
-    .titulo{
-        display: inline;
-        font-size: 18px;
-        color: #ff4000;
-        font-weight: bolder;
-        text-decoration: underline;
-        text-decoration-color: black;
-        
+    .alertas2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin-top: -10px;
+      margin-left: -25%;
+     
     }
-    .alertas {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        margin-top: -90px;
-        margin-left: -15%;
-       
-      }
+    
+    .card-alerta1 {
+     background-color: #000000;
+     color: #fff;
+     box-shadow: 1px 1px 0.2em #888;
+     border-radius: 10px;
+     
+    }
+    
+    .card-alerta2{
+        background-color: #000000;
+        color: #fff;
+        box-shadow: 1px 1px 0.2em #888;
+        border-radius: 10px;
       
-      .card-alerta1 {
-       background-color: #000000;
-       color: #fff;
-       box-shadow: 1px 1px 0.2em #888;
-       border-radius: 10px;
-       
-      }
-      
-      .card-alerta2{
-          background-color: #000000;
-          color: #fff;
-          box-shadow: 1px 1px 0.2em #888;
-          border-radius: 10px;
-        
-      }
-      
-      .card-alerta3 {
-          background-color: #000000;
-          color: #fff;
-          box-shadow: 1px 1px 0.2em #888;
-          border-radius: 10px;
-      }
-      
-      .card-alerta3 {
-          background-color: #000000;
-          color: #fff;
-          box-shadow: 1px 1px 0.2em #888;
-          border-radius: 10px;
-      }
-      
-      
-      .item-alerta{
+    }
+    
+    .card-alerta3 {
+        background-color: #000000;
+        color: #fff;
+        box-shadow: 1px 1px 0.2em #888;
+        border-radius: 10px;
+    }
+    
+    .card-alerta3 {
+        background-color: #000000;
+        color: #fff;
+        box-shadow: 1px 1px 0.2em #888;
+        border-radius: 10px;
+    }
+    
+    
+    .item-alerta{
+      padding: 40px;
+      width: 30%;
+      margin: 15px;
+      text-align: center;
+      padding-top: 40px;
+    
+    
+    }
+    .item-alerta2 {
         padding: 40px;
-        width: 40%;
+        width: 30%;
         margin: 15px;
         text-align: center;
         padding-top: 40px;
       
       
       }
-      .item-alerta2 {
-          padding: 40px;
-          width: 40%;
-          margin: 15px;
-          text-align: center;
-          padding-top: 40px;
-        
-        
-        }
 
-        .superlotacao{
-            color: #8F00FF;
-        }
-        .critica{
-            color: #ff0000;
-        }
-        .ideal1{
-            color: #00ff00;
-        }
-        .lotacao1{
-            color: #0077ff;
-        }
-        
+      .superlotacao{
+          color: #8F00FF;
+      }
+      .critica{
+          color: #ff0000;
+      }
+      .ideal1{
+          color: #00ff00;
+      }
+      .lotacao1{
+          color: #0077ff;
+      }
+      .cuidado{
+        color: yellow;
+    }
+
+    
+
+      
+
+
 
 
 
@@ -457,36 +474,37 @@ nav .adm .nome{
     .regua {
         display: flex;
         justify-content: center;
-        width: 150%;
+        width: 120%;
         margin-top: 26px;
-        height: 40%;
-        margin-left: -10%;  
+        height: 35%;
+        margin-left: -8%;  
       }
-    .vagas-disponiveis {
-      background-color: #000000;
-      color: #fff;
+    .analytics_critico {
+     background-color: #ff0000;
+      color: #000000;
       box-shadow: 1px 1px 0.2em #888;
     }
-    .vagas-ocupadas{
-        background-color: #FF4000;
-        color: #fff;
+    .analytics_cuidado{
+        background-color: yellow;
+        color: #000000;
+        
         box-shadow: 1px 1px 0.2em #888;
     }
-    .horario-pico {
-        background-color: #000000;
-        color: #fff;
+    .analytics_ideal{
+        background-color:#00ff00;
+        color: #000000;
         box-shadow: 1px 1px 0.2em #888;
     }
-    .menor-fluxo {
-        background-color: #FF4000;
-        color: #fff;
+    .analytics_superlotacao{
+        background-color: #8F00FF;;
+        color: #000000;
         box-shadow: 1px 1px 0.2em #888;
     }
     .item-regua {
         padding: 40px;
-        width: 56%;
+        width: 150%;
         margin: 15px;
-        height: 60%;
+        height: 50%;
         text-align: center;
         padding-top: 10px;
         border-radius: 10px;
@@ -499,14 +517,15 @@ nav .adm .nome{
           text-align: center;
           padding-top: 20px;
           border-radius: 10px;
+          font-weight: 800;
         }
 
         .item-regua h2{
-          margin-top: 30px;
+          margin-top: 10px;
         }
         .item-regua2 h2{
      
-          margin-top: 30px;
+          margin-top: 10px;
         }
 
         .titulo{
@@ -527,14 +546,14 @@ nav .adm .nome{
     }
            /* ================================= ESTILIZANDO  A LISTA ===================================*/
       .card{
-        margin-left: 160%;
-        margin-top: -50%;
+        margin-left: 74%;
+        margin-top: -42%;
         background-color:#f0eff5;
         flex-direction: column;
         display:flex;
         justify-content: space-between;
         padding: 90px;
-        width: 50%;
+        width: 45%;
         height: 26%;
        color: #000000;
      
@@ -562,7 +581,7 @@ nav .adm .nome{
     .carro2 .bx {
         margin-top: 4%;
         font-size: 20px;
-        color: #0077ff;
+        color: #FF4000;
         
     } .carro3 .bx {
         margin-top: 4%;
@@ -581,7 +600,7 @@ nav .adm .nome{
         
     }
  .search2 input{
-        color: #fff;
+        color: #000000;
         background: transparent;
         width: 100%;
        
@@ -597,7 +616,7 @@ nav .adm .nome{
         gap: 1rem;
         color: #56555e;
         position: absolute;
-        left: 68%;
+        left: 65%;
         margin-top: -5%;
     }
    
@@ -641,7 +660,7 @@ nav .adm .nome{
     color: #8F00FF;
 }
 .cor4{
-    color: #0077ff;
+    color: #ff0000;
 }
   
 
