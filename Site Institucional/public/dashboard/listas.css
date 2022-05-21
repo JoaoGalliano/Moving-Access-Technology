@@ -73,7 +73,7 @@ width: 100%;
 }
 nav .adm{
 color: #313133;
-width: 10vw;
+width: 12vw;
 border-radius: 6px;
 display: flex;
 align-items: center;
@@ -99,7 +99,9 @@ font-weight: 600;
     width:270px;
     height: 180px;
     border-radius:20px;
-    margin-top: 40px;
+    margin-left: 70px;
+    margin-top: 20px;
+    margin-bottom: 60px;
     padding: 30px;
     justify-content: center;
     flex-direction: row;
@@ -115,7 +117,7 @@ font-weight: 600;
 }
 
 .titulo{
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 130px;
 }
 
@@ -142,7 +144,7 @@ font-weight: 600;
     gap: 1rem;
     color: #56555e;
     position: absolute;
-    left: 68%;
+    left: 74%;
     margin-top: -5%;
 }
 
@@ -406,3 +408,31 @@ main aside{
  }
  
   /* ===================================  FIM DO ASIDE MENU ===========================================  */
+
+  /*INICIO - VOLTAR PARA PÁGINA DE ALERTAS*/
+.voltar {
+  color: #000;
+  font-size: 13px;
+  margin-left: 131px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+
+}
+.voltar img{
+width: 18px;
+height: 18px;
+margin-right: 7px;
+}
+
+/*FIM - VOLTAR PARA PÁGINA DE ALERTAS*/
+
+/*INICIO - LINHA HR*/
+.quebra_de_pagina {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 98.5vw;
+  background-color: #313133;
+  height: 1px;
+}
+/*FIM - LINHA HR*/
