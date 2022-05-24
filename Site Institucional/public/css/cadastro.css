@@ -27,13 +27,14 @@
   background-color: black;
   border: #FF4000 2px solid;
   height: fit-content;
-  width: 400px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   color: #FF4000;
   align-items: center;
   border-radius: 4px;
   justify-content: center;
+
 }
 
 
@@ -53,7 +54,7 @@
 }
 
 
-.btn{
+#btn{
   display: flex;
   align-items: center;
    font-family: Poppins;
@@ -70,8 +71,13 @@
    width: 130px;
    margin-top: 20px;
    margin-bottom: 25px;
-   margin-left: 55px;
    text-align: center;
+  }
+
+  .btn {
+    width: 200px;
+    margin: 20px;
+    margin-left: 135px;
   }
 
 .loading-div {
@@ -106,3 +112,25 @@
    font-weight: 500;
    font-size: 20px;
  }
+
+ .tudo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+}
+
+.formulario .primeiro {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+  
+}
+
+.formulario .segundo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+  margin-left: 50px;
+}

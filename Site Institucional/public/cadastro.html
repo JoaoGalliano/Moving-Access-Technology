@@ -51,12 +51,13 @@
             <div class="card medio">
                 <h2>Bem-vindo!</h2>
                 <div class="formulario">
+                    <div class="tudo">
 
                     <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                         -->
-
+                    <div class="primeiro">
                     <span class="tipo_campo">Nome:</span>
                     <input id="nome_input" type="text" placeholder="Seu nome">
 
@@ -64,12 +65,22 @@
                     <input id="email_input" type="text" placeholder="meuemail@provedor.com">
 
                     <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
+                    <input id="senha_input" type="password" placeholder="******"> 
+
+                    </div>
+                    <div class="segundo">
+                    <span class="tipo_campo">CNPJ</span>
+                    <input id="cnpj_input" type="text" placeholder="Informe seu CNPJ">
+
+                    <span class="tipo_campo">Empresa</span>
+                    <input id="empresa_input" type="text" placeholder="Informe aqui">
 
                     <span class="tipo_campo">Confirmação da Senha:</span>
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    </div>
+                </div>
 
-                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                <button class="btn" onclick="cadastrar()">Cadastrar</button>
 
                 </div>
                 <div id="div_aguardar" class="loading-div">
