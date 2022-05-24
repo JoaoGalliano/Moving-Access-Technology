@@ -14,9 +14,9 @@ const serial = async (
         {
             host: 'localhost',
             port: 3306,
-            user: 'aluno',
-            password: 'sptech',
-            database: 'projeto_iot'
+            user: 'root',
+            password: '@C3s$0workbench',
+            database: 'mat'
         }
     ).promise();
 
@@ -50,7 +50,7 @@ const serial = async (
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                'INSERT INTO hist_medicao (chave) VALUES (?)',
+                'INSERT INTO dados (state, fksensor, fkestacionamento, fkempresa, data, hora) VALUES (?, 1, 1, 1, curdate(), CURRENT_TIME())',
                 [chave]
             );
             console.log("valores inseridos no banco: " + chave)
