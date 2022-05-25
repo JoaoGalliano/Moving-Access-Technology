@@ -372,9 +372,13 @@ nav .adm .nome{
       font-size: 18px;
       color: #ff4000;
       font-weight: bolder;
-      text-decoration: underline;
-      text-decoration-color: black;
       
+  }
+
+  .text_titulo {
+      color: #000000;
+      font-size: 15px;
+      font-weight: normal;
   }
   .alertas {
       display: flex;
@@ -475,7 +479,7 @@ nav .adm .nome{
         display: flex;
         justify-content: center;
         width: 120%;
-        margin-top: 26px;
+        margin-top: 5px;
         height: 35%;
         margin-left: -8%;  
       }
@@ -625,6 +629,7 @@ nav .adm .nome{
  .critico .texto1{
       padding: 10px;
       margin-top: 5px;
+      margin-bottom: 50px;
       text-align:justify;
       margin-left: 1px;
       display:inline-block;
@@ -666,7 +671,63 @@ nav .adm .nome{
 
        /* ================================= FIM DA LISTA ===================================*/
 
-       
- 
+/*INICIO - LEGENDA*/
+
+.legenda{
+  display: flex;
+  justify-content: center;
+  color: #000;
+  margin-top: 20px;
+}
+
+/*FIM - LEGENDA*/
+
+/*INICIO - CIRCULO NOTIFICAÇÃO NO CARD*/
+
+.retangulo_red{
+  border-radius: 10%;
+  background-color: red;
+  color: #f0eff5;
+  font-weight: bold;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  display: inline-block;
+}
+
+.retangulo_green{
+  border-radius: 10%;
+  background-color: #00ff00;
+  color: #000;
+  font-weight: bold;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  display: inline-block;
+}
+
+.retangulo_purple{
+  border-radius: 10%;
+  background-color: #8F00FF;
+  color: #f0eff5;
+  font-weight: bold;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  display: inline-block;
+}
+
+.retangulo_yellow{
+  border-radius: 10%;
+  background-color: #FFFF00;
+  color: #000;
+  font-weight: bold;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  display: inline-block;
+}
+
+/*FIM - CIRCULO NOTIFICAÇÃO NO CARD*/
 
 
