@@ -1,3 +1,0 @@
-(excel)shuffle sensores; contabilização independente; concatenar e somar por periodo(sumarização)*; mediana; define range dos alertas; emite popup(div.display && msg); implementar alertas (histórico de alertas[menu]BD).
-
-*usar estrutura de repetição FOR no JS.
