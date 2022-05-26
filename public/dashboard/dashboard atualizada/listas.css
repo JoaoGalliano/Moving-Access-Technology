@@ -21,7 +21,7 @@ body{
 nav{
   width: 100%;
   background-color: #000000;
-  padding: 2rem 0;
+  padding: 0.76rem 0;
 
 }
 nav .container{
@@ -34,7 +34,7 @@ nav .container{
 }
 
 nav img.logo{
-   width: 7rem;
+   width: 5.2rem;
    margin-left: 5%;
 
 }
