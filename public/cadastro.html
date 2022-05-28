@@ -203,6 +203,47 @@
             finalizarAguardar();
         });
 
+        cadastrar_empresa();
+
+        return false;
+        
+    }
+
+    function cadastrar_empresa(){
+
+        var cnpjVar = cnpj_input.value;
+        var empresaVar = empresa_input.value;
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar_empresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                cnpjServer: cnpjVar,
+                empresaServer: empresaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
         return false;
     }
 
