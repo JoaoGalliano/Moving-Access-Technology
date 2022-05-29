@@ -451,13 +451,13 @@ nav .adm .nome{
            /* ================================= ESTILIZANDO OS ANALYTICS ===================================*/
       .card{
         margin-left: 96%;
-        margin-top: -148.5%;
+        margin-top: -167.5%;
         background-color: #000000;
         flex-direction: column;
         display:flex;
         justify-content: space-between;
         padding: 90px;
-        width: 43%;
+        width: 50%;
         height: 30%;
        color: #fff;
        border-radius: 10px;
@@ -603,7 +603,7 @@ nav .adm .nome{
     display:flex;
     justify-content: space-between;
     padding: 90px;
-    width: 43%;
+    width: 50%;
     height: 26%;
    color: #fff;
    box-shadow: 1px 1px 0.2em #888;
@@ -691,7 +691,7 @@ nav .adm .nome{
   display:flex;
   justify-content: space-between;
   padding: 90px;
-  width: 43%;
+  width: 50%;
   height: 20%;
  color: #fff;
  box-shadow: 1px 1px 0.2em #888;
