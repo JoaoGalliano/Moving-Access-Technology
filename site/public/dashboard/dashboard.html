@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="validarSessao(), atualizarFeed()">
+<body onload="validarSessao(), obterDadosGrafico(1)">
 
     <div class="janela">
         <div class="header-left">
@@ -84,11 +84,11 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico(1);
+    /*window.onload = obterDadosGrafico(1), validarSessao();
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    verificar_autenticacao();
+    verificar_autenticacao();*/
 
     function alterarTitulo(idAquario) {
         var tituloAquario = document.getElementById("tituloAquario")
