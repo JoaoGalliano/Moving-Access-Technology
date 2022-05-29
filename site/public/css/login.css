@@ -1,0 +1,47 @@
+/* LOGIN */
+.tipo_campo {
+    color: #FF9E01;
+}
+
+.banner .container .card {
+    margin-top: 100px;
+    background-color: black;
+    border: #FF4000 2px solid;
+    height: fit-content;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: #FF4000;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card h2 {
+    font-size: 30px;
+}
+
+.card h4 {
+    font-size: 16px;
+}
+
+.banner #div_erros_login {
+    margin-top: 15px;
+}
+
+body {
+    background-image: url('../assets/imgs/banner.jpg');
+    opacity: 0.9;
+    height: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button {
+    box-shadow: white 1px 1px 4px;
+    cursor: pointer;
+}

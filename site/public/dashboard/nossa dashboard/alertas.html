@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas</title>
+    <link rel="stylesheet" href="alertas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">    <!-- IMPORTANDO ICONES DO GOOGLE -->
+
+</head>
+<body>
+    <!-- COMEÇO DA NAVBAR  -->
+    <nav>
+        <div class="container">
+            <img src="images/LogoMATprojetoOrange.png" alt="" class="logo">
+            <div class="search-bar">
+                <span class="material-icons-sharp">search</span>
+                <input type="search" placeholder="Buscar...">
+            </div>
+
+            <div class="comboBox">
+               
+         
+                <select id="lista_estacionamento">
+                    <option value="">Morumbi</option>
+                    <option value="">Consolação</option>
+                    <option value="">Tatuapé</option>
+                    <option value="">Penha</option>
+                    <option value="">Faria Lima</option>
+                </select>
+               <span class="material-icons-sharp"> expand_more</span>
+            </div>
+
+
+            <div class="adm">
+
+                <span class="nome">Bem-vindo, Fernando!</span>
+            </div>
+
+            <!-- <button id="menu-btn">
+                <span class="material-icons-sharp">menu</span>
+            </button> -->
+         
+        </div>
+        </nav>
+          <!-- FIM DA NAVBAR  -->
+    <main>
+ <!--============================== COMEÇO BARRA LATERAL - MENU =============================================== -->
+
+        <aside> <!-- TAG UTILIZADA PARA CRIAR UMA BARRA LATERAL, NO CASO O MENU  -->
+          <div class="sidebar">
+            <div class="logo-details">
+             
+                <div class="logo_name">MAT</div>
+                <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav-list">
+              <li>
+                  <i class='bx bx-search' ></i>
+                 <input type="text" placeholder="Search...">
+                 <span class="tooltip">Pesquisar</span>
+              </li>
+              <li>
+                <a href="dashboard.html">
+                  <i class='bx bx-grid-alt'></i>
+                  <span class="links_name">Dashboard</span>
+                </a>
+                 <span class="tooltip">Dashboard</span>
+              </li>
+              <li>
+              
+             <li>
+                <a href="#">
+                  <i class='bx bx-car' ></i>
+                  <span class="links_name">Estacionamento</span>
+                </a>
+                <span class="tooltip">Estacionamento</span>
+              </li>
+             <li>
+              
+               <a href="alertas.html">
+                 <i class='bx bx-pie-chart-alt-2' ></i>
+                 <span class="links_name">Analytics</span>
+               </a>
+               <span class="tooltip">Analytics</span>
+             </li>
+             <li>
+           
+             <a href="https://mat-suporte.freshdesk.com/support/home">
+                <i class='bx bx-support' ></i>
+                <span class="links_name">Suporte</span>
+              </a>
+              <span class="tooltip">
+                Support</span>
+            </li>
+           
+            
+             <li>
+             
+             <li class="profile">
+                 <div class="profile-details">
+           
+                   <div class="name_job">
+                     <div class="name">Fernando</div>
+                     <div class="job">Administrador</div>
+                   </div>
+                 </div>
+                 <i class='bx bx-log-out' id="log_out" ></i>
+             </li>
+            </ul>
+          </div>
+          
+
+
+        </aside>
+<!--=================================== FIM BARRA LATERAL - MENU  =============================================-->
+
+
+<!--=================================== COMEÇANDO A PARTE CENTRAL  =============================================-->
+
+             <section class="meio">
+
+ <!-- =========================== criando os três cards =======================================-->
+ <h2 class="legenda">Legenda:</h2>
+              <div class="regua">
+                <div class="item-regua2 analytics_critico">
+                   
+                    <h2>Crítico</h2>
+                    <h3>30% Alta taxa de  desocupação</h3>
+                
+                </div>
+                
+                <div class="item-regua2 analytics_cuidado">
+                    
+                    <h2>Cuidado</h2>
+                    <h3> 50% Alerta desocupação</h3>
+              
+                </div>
+                <div class="item-regua2 analytics_ideal">
+                  
+                    <h2>Ideal</h2>
+                    <h3>75% Ocupação mínima esperada</h3>
+          
+                </div>
+                <div class="item-regua2 analytics_superlotacao">
+                   
+                    <h2>Lotação</h2>
+                    <h3> 95% Alerta de lotação</h3>
+              
+                </div>
+                </div>
+ <!-- =========================== fim dos cards =======================================-->
+
+ 
+ <!-- =========================== criando os alertas =======================================-->
+
+ <div class="conteudos">
+    <div class="titulo">
+      <h2>Alertas</h2>
+      <p class="text_titulo">Acompanhe por cards os alertas específicos que você procura</p>
+    </div>
+</div>
+
+ <div class="alertas">
+  
+    <div class="item-alerta card-alerta1">
+        <h1>Alerta</h1>
+      
+ 
+        <a href="critico_lista.html">
+        <div class="critica">
+            <h2>Crítico</h2>
+            <div class="retangulo_red">+6</div>
+        <!-- <h3>15h-16h</h3> -->
+        </div>
+        </a>
+    </div>
+    <div class="item-alerta card-alerta2">
+        <h1>Alerta</h1>
+        
+       
+        <a href="cuidado_lista.html">
+        <div class="cuidado">
+            <h2>Cuidado</h2>
+            <div class="retangulo_yellow">+6</div>
+        <!-- <h3>15h-16h</h3> -->
+        </div>
+    </div>
+    </div>
+    <div class="alertas2">
+    <div class="item-alerta2 card-alerta3">
+  
+        <h1 style="color: #fff;">Alerta</h1>
+        
+     
+        <a href="ideal_lista.html">
+        <div class="ideal1">
+            <h2>Ideal</h2>
+            <div class="retangulo_green">+6</div>
+        <!-- <h3>15h-16h</h3> -->
+        </div>
+    </a>
+    </div>
+    <div class="item-alerta2 card-alerta3">
+  
+        <h1>Alerta</h1>
+
+        
+        <a href="lotacao_lista.html">
+            <div class="superlotacao">
+                <h2>Lotação</h2>
+                <div class="retangulo_purple">+6</div>
+        <!-- <h3>15h-16h</h3> -->
+            </div>
+    </a>
+     
+    </div>
+
+</div>
+ <!-- =========================== criando a lista =======================================-->
+
+                  <div class="card">
+
+                        <div class="search2">
+                            <span class="material-icons-sharp">search</span>
+                            <input type="search" placeholder="Buscar...">
+                        </div>
+                <div class="critico">
+                
+                    <div class="carro1">
+                        <i class='bx bx-car' ></i>
+                    </div>
+                   <div class="cor1"> <div class="texto1"><h4>EstaciON</h4></div> 
+                    <div class="hora"><h3>10%</h3></div> </div>
+                     
+                </div>
+                <div class="critico">
+                
+                    <div class="carro2">
+                        <i class='bx bx-car' ></i>
+                    </div>
+                    <div class="cor4"> <div class="texto1"><h4>EstaciON</h4></div> 
+                    <div class="hora"><h3>10%</h3></div> </div>
+                     
+                </div>
+                <div class="critico">
+                <div class="carro3">
+                    <i class='bx bx-car' ></i>
+                </div>
+                <div class="cor1"> <div class="texto1"><h4>EstaciON</h4></div> 
+                <div class="hora"><h3>10%</h3></div> </div>
+                     
+                </div>
+
+                <div class="critico">
+                
+                    <div class="carro4">
+                        <i class='bx bx-car' ></i>
+                    </div>
+                    <div class="cor2"> <div class="texto1"><h4>EstaciON</h4></div> 
+                    <div class="hora"><h3>10%</h3></div> </div>
+                     
+                </div>
+                <div class="critico">
+                
+                    <div class="carro5">
+                        <i class='bx bx-car' ></i>
+                    </div>
+                    <div class="cor3"> <div class="texto1"><h4>EstaciON</h4></div> 
+                    <div class="hora"><h3>10%</h3></div> </div>
+                     
+                </div>
+
+
+
+            
+               
+
+                
+
+                </div>
+
+ <!-- =========================== fim da lista  =======================================-->
+
+
+
+
+               
+
+
+
+            </section>
+
+            
+<!--=================================== FIM DA PARTE CENTRAL  =============================================-->
+
+
+
+       
+            </main>
+          
+            
+            
+      
+ <!-- SCRIPT PARA ABRIR O MENU LATERAL (ta comentado porque não sei se vamos utilizar ele aberto na dashboard) -->
+ 
+      <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+      
+        closeBtn.addEventListener("click", ()=>{
+          sidebar.classList.toggle("open");
+          menuBtnChange();//calling the function(optional)
+        });
+      
+        searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+          sidebar.classList.toggle("open");
+          menuBtnChange(); //calling the function(optional)
+        });
+      
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+         if(sidebar.classList.contains("open")){
+           closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+         }else {
+           closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+         }
+        }
+        </script>
+
+
+</body>
+
+
+</html>

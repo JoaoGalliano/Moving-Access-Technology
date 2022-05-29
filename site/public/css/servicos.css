@@ -1,0 +1,78 @@
+/* SERVIÇOS */
+.corpo {
+    margin-top: 35px;
+    height: 400px;
+    display: flex;
+}
+
+.corpo .esquerda {
+    position: absolute;
+    margin-right: 50%;
+    margin-left: 5%;
+}
+
+.corpo .direita {
+    position: absolute;
+    margin-left: 50%;
+    margin-right: 5%;
+}
+
+.titulo {
+    font-size: 40px;
+    color: #FF4000;
+    font-weight: bold;
+}
+
+.conteudo {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    color: #000000;
+}
+
+button {
+    font-family: Poppins;
+    margin-top: 10px;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 18px;
+    color: black;
+    padding: 10px 10px;
+    background-color: #FF4000;
+    width: 30%;
+    cursor: pointer;
+    box-shadow: black 2px 2px 5px;
+}
+
+.img_estacionamento {
+    margin-top: 10px;
+    width: 95%;
+    border-radius: 30px;
+}
+
+.diagrama1 {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.diagrama1 img {
+    margin-top: -50px;
+    width: 100vh;
+}
+
+.footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: #FFF;
+    background-color: white;
+    width: 100vw;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}

@@ -1,0 +1,91 @@
+/* ESTILIZANDO A PAGINA DE CONTATO */
+
+body {
+    background-image: url('../assets/imgs/bgSimulador.png');
+    opacity: 0.9;
+    /* mudar para 600px caso pc chico não funcione */
+    height: 87vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container .card {
+    background-color: black;
+    border: #FF4000 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15px;
+    margin-right: 90px;
+    width: 400px;
+    height: 440px;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+/* .container .card h4{
+   margin-left: -300px;
+   justify-content: flex-start;
+   align-items: flex-start;
+} */
+#ipt_msg {
+    height: 60px;
+    width: 380px;
+    border: 1px solid #FF4000;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+.ipt {
+    /* height: 100px;  */
+    width: 380px;
+    border: 1px solid #FF4000;
+    border-radius: 4px;
+}
+
+.btnContato {
+    margin-left: 128px;
+    font-family: Poppins;
+    margin-bottom: 40px;
+    border: 0;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+    width: 150px;
+    padding: 10px 15px;
+    background-color: #FF4000;
+    cursor: pointer;
+}
+
+/* .banner_contato {
+    background-image: url("../assets/imgs/bgSimulador.png");
+    opacity: 0.9;
+    height: 87vh;
+    background-size: cover;
+} */
+
+h4 {
+    color: #FF9E01;
+}
+
+/* .txt {
+   margin-left: 5%;
+} */
+.txt {
+
+    margin-left: 120px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.txt h1 {
+    font-size: 50px;
+}
+
+.txt h2 {
+    color: #fff;
+}

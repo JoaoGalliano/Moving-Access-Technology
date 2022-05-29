@@ -1,0 +1,36 @@
+/* SAIBA MAIS */
+body {
+    background-image: url("../assets/imgs/asfalto.jpg");
+    opacity: 0.9;
+    height: 600px;
+    background-size: cover;
+}
+
+.corpo_saibamais {
+    justify-content: center;
+    margin: 150px;
+}
+
+.titulo_saibamais {
+    margin-top: -75px;
+    font-size: 40px;
+    color: #FF4000;
+    font-weight: bold;
+    text-shadow: black 3px 3px 5px;
+}
+
+.texto_saibamais {
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: justify;
+    text-shadow: black 3px 3px 5px;
+}
+
+.img_saibamais {
+    display: flex;
+    justify-content: center;
+    height: 488px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}

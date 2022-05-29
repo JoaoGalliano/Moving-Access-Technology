@@ -1,0 +1,105 @@
+/* ESTILIZANDO A PÁGINA DE CADASTRO*/
+.h4_cadastro {
+    color: #FF9E01;
+}
+
+.ipt {
+    height: 30px;
+    width: 400px;
+    border: 1px solid #FF4000;
+    border-radius: 4px;
+}
+
+.tipo_campo {
+    color: #FF9E01;
+}
+
+.h1_cadastro {
+    text-align: center;
+}
+
+.banner_cadastro .container {
+    height: 590px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner .container .card {
+    margin-top: 50px;
+    background-color: black;
+    border: #FF4000 2px solid;
+    border-radius: 20px;
+    height: fit-content;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    color: #FF4000;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background-image: url("../assets/imgs/banner.jpg");
+    opacity: 0.9;
+    height: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.span_cadastro {
+    margin-top: 10px;
+    color: #FF9E01;
+}
+
+.card_cadastro span {
+    font-size: 14px;
+}
+
+#btn {
+    display: flex;
+    align-items: center;
+    font-family: Poppins;
+    margin-top: 10px;
+    border: 0;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 15px 10px 15px;
+    background-color: #FF4000;
+    cursor: pointer;
+    height: 40px;
+    width: 130px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.btn {
+    width: 200px;
+    margin: 20px;
+    margin-left: 135px;
+    box-shadow: white 1px 1px 4px;
+}
+
+.tudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.formulario .primeiro {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.formulario .segundo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    margin-left: 50px;
+}
