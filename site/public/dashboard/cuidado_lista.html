@@ -21,16 +21,19 @@
 </head>
 
 <body onload="validarSessao(), obterDadosGrafico(1)">
-    <!-- COMEÇO DA NAVBAR ============================================================================================================================ -->
+
+    <!-- COMEÇO DA NAVBAR  -->
     <nav>
         <div class="container">
-            <img src="../assets/icon/LogoMATprojetoOrange.png" alt="" class="logo">
+            <img src="images/LogoMATprojetoOrange.png" alt="" class="logo">
             <div class="search-bar">
                 <span class="material-icons-sharp">search</span>
                 <input type="search" placeholder="Buscar...">
             </div>
 
             <div class="comboBox">
+
+
                 <select id="lista_estacionamento">
                     <option value="">Morumbi</option>
                     <option value="">Consolação</option>
@@ -38,87 +41,92 @@
                     <option value="">Penha</option>
                     <option value="">Faria Lima</option>
                 </select>
-
-                <span class="material-icons-sharp">expand_more</span>
+                <span class="material-icons-sharp"> expand_more</span>
             </div>
 
 
             <div class="adm">
-                <span class="nome">Bem-vindo, <span id="b_usuario">usuário!</span></span>
+
+                <span class="nome">Bem-vindo, Fernando!</span>
             </div>
 
             <!-- <button id="menu-btn">
                 <span class="material-icons-sharp">menu</span>
             </button> -->
+
         </div>
     </nav>
-    <!-- FIM DA NAVBAR ============================================================================================================================ -->
+    <!-- FIM DA NAVBAR  -->
 
-    <main>
-        <!--============================== COMEÇO BARRA LATERAL - MENU =============================================== -->
-        <aside>
-            <!-- TAG UTILIZADA PARA CRIAR UMA BARRA LATERAL, NO CASO O MENU  -->
-            <div class="sidebar">
-                <div class="logo-details">
-                    <div class="logo_name">MAT</div> <!-- COLOCAR A LOGO AQUI!!! -->
-                    <i class='bx bx-menu' id="btn"></i>
-                </div>
+    <aside>
+        <!-- TAG UTILIZADA PARA CRIAR UMA BARRA LATERAL, NO CASO O MENU  -->
+        <div class="sidebar">
+            <div class="logo-details">
 
-                <ul class="nav-list">
-                    <li>
-                        <i class='bx bx-search'></i>
-                        <input type="text" placeholder="Search...">
-                        <span class="tooltip">Pesquisar</span>
-                    </li>
-
-                    <li>
-                        <a href="dashboard.html">
-                            <i class='bx bx-grid-alt'></i>
-                            <span class="links_name">Dashboard</span>
-                        </a>
-                        <span class="tooltip">Dashboard</span>
-                    </li>
-
-                    <li>
-                        <a href="lista_estacionamentos.html">
-                            <i class='bx bx-car'></i>
-                            <span class="links_name">Estacionamento</span>
-                        </a>
-                        <span class="tooltip">Estacionamento</span>
-                    </li>
-
-                    <li>
-                        <a href="alertas.html">
-                            <i class='bx bx-pie-chart-alt-2'></i>
-                            <span class="links_name">Analytics</span>
-                        </a>
-                        <span class="tooltip">Analytics</span>
-                    </li>
-
-                    <li>
-                        <a href="https://mat-suporte.freshdesk.com/support/home">
-                            <i class='bx bx-support'></i>
-                            <span class="links_name">Suporte</span>
-                        </a>
-                        <span class="tooltip">Support</span>
-                    </li>
-
-                    <li class="profile">
-                        <div class="profile-details">
-                            <div class="name_job">
-                                <div class="name"><span id="c_usuario">usuário</span></div>
-                                <div class="job">Administrador</div>
-                            </div>
-                        </div>
-                        <i class='bx bx-log-out' id="log_out"></i> <!-- ADICIONAR CAMINHO DE SAIDA E LIMPAR SESSÃO -->
-                    </li>
-                </ul>
+                <div class="logo_name">MAT</div>
+                <i class='bx bx-menu' id="btn"></i>
             </div>
-        </aside>
-        <!--=================================== FIM BARRA LATERAL - MENU  =============================================-->
+            <ul class="nav-list">
+                <li>
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                    <span class="tooltip">Pesquisar</span>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+                <li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bx-car'></i>
+                        <span class="links_name">Estacionamento</span>
+                    </a>
+                    <span class="tooltip">Estacionamento</span>
+                </li>
+                <li>
+
+                    <a href="alertas.html">
+                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <span class="links_name">Analytics</span>
+                    </a>
+                    <span class="tooltip">Analytics</span>
+                </li>
+                <li>
+                    <a href="https://mat-suporte.freshdesk.com/support/home">
+                        <i class='bx bx-support'></i>
+                        <span class="links_name">Suporte</span>
+                    </a>
+                    <span class="tooltip">
+                        Support</span>
+                </li>
+
+
+
+                <li>
+
+                <li class="profile">
+                    <div class="profile-details">
+
+                        <div class="name_job">
+                            <div class="name">Fernando</div>
+                            <div class="job">Administrador</div>
+                        </div>
+                    </div>
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </li>
+            </ul>
+        </div>
+
+    </aside>
+    <!--=================================== FIM BARRA LATERAL - MENU  =============================================-->
     <a href="alertas.html">
         <div class="voltar">
-            <img src="../assets/icon/voltar.png" alt="icon_voltar">
+            <img src="images/voltar.png" alt="icon_voltar">
             <h3>Voltar</h3>
         </div>
     </a>
@@ -225,6 +233,5 @@
 </body>
 
 <script src="js/menu.js"></script>
-<script src="js/listas.js"></script>
 
 </html>

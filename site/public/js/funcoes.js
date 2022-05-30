@@ -6,12 +6,10 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
 
     var b_usuario = document.getElementById("b_usuario");
-    var c_usuario = document.getElementById("c_usuario");
 
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
         b_usuario.innerHTML = nome;
-        c_usuario.innerHTML = nome;
 
         // finalizarAguardar();
     } else {
