@@ -6,13 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="listas.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="icon" href="../assets/icon/LogoMATprojetoOrange.png">
+
+    <link rel="stylesheet" href="./css/listas.css" />
+
+    <!-- IMPORTANDO ICONES DO GOOGLE - Início ============================================================================================================================ -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <!-- IMPORTANDO ICONES DO GOOGLE - Fim ============================================================================================================================ -->
+
     <title>MAT | Lotação</title>
 </head>
 
-<body>
+<body onload="validarSessao(), obterDadosGrafico(1)">
 
     <!-- COMEÇO DA NAVBAR  -->
     <nav>
@@ -214,34 +222,9 @@
         </div>
     </div>
     </div>
-
     <!-- SCRIPT PARA ABRIR O MENU LATERAL (ta comentado porque não sei se vamos utilizar ele aberto na dashboard) -->
-
-    <script>
-        let sidebar = document.querySelector(".sidebar");
-        let closeBtn = document.querySelector("#btn");
-        let searchBtn = document.querySelector(".bx-search");
-
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-            menuBtnChange();//calling the function(optional)
-        });
-
-        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-            sidebar.classList.toggle("open");
-            menuBtnChange(); //calling the function(optional)
-        });
-
-        // following are the code to change sidebar button(optional)
-        function menuBtnChange() {
-            if (sidebar.classList.contains("open")) {
-                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-            } else {
-                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-            }
-        }
-    </script>
-
 </body>
+
+<script src="js/menu.js"></script>
 
 </html>
