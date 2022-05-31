@@ -1,68 +1,67 @@
 // ================================== CONFIGURANDO CHART JS ===========================================-->
-const labels = [
-    '12:00',
-    '12:30',
-    '15:00',
-    '17:00',
-    '13:10',
-    '13:40',
-];
+// const labels2 = [
+//   'Segunda-feira',
+//   'Terça-feira',
+//   'Quarta-feira',
+//   'Quinta-feira',
+//   'Sexta-feira',
+//   'Sábado',
+//   'Domingo',
+// ];
 
-const labels2 = [
-    'Segunda-feira',
-    'Terça-feira',
-    'Quarta-feira',
-    'Quinta-feira',
-    'Sexta-feira',
-    'Sábado',
-    'Domingo',
-];
+// const data2 = {
+//   labels: labels2,
+//   datasets: [{
+//     label: 'Fluxo de Carros',
+//     backgroundColor: '#FF4000',
+//     borderColor: '#FF4000',
+//     data: [340, 180, 210, 150, 190, 360, 100],
+//   }]
+// };
 
-const data = {
-    labels: labels,
-    datasets: [{
-        label: 'Vagas Ocupadas',
-        backgroundColor: '#FF4000',
-        borderColor: '#FF4000',
-        data: [60, 50, 100, 38, 64, 20],
-    }]
-};
+// const labels = [
+//   '12:00',
+//   '12:30',
+//   '15:00',
+//   '17:00',
+//   '13:10',
+//   '13:40',
+// ];
 
-const data2 = {
-    labels: labels2,
-    datasets: [{
-        label: 'Fluxo de Carros',
-        backgroundColor: '#FF4000',
-        borderColor: '#FF4000',
-        data: [340, 180, 210, 150, 190, 360, 100],
-    }]
-};
+// const data = {
+//   labels: labels,
+//   datasets: [{
+//     label: 'Vagas Ocupadas',
+//     backgroundColor: '#FF4000',
+//     borderColor: '#FF4000',
+//     data: [60, 50, 100, 38, 64, 20],
+//   }]
+// };
 
-const config = {
-    type: 'line',
-    data: data,
-    options: {}
-};
+// const config = {
+//   type: 'line',
+//   data: data,
+//   options: {}
+// };
 
-const config2 = {
-    type: 'bar',
-    data: data2,
-    options: {}
-};
+// const config2 = {
+//   type: 'bar',
+//   data: data2,
+//   options: {}
+// };
 
+// const myChart2 = new Chart(
+//   document.getElementById('myChart2'),
+//   config2
+// );
 
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-);
-
-const myChart2 = new Chart(
-    document.getElementById('myChart2'),
-    config2
-);
+// const myChart = new Chart(
+//   document.getElementById('myChart'),
+//   config
+// );
 
 
-// ================================== SCRIPT DO GRÁFICO ===========================================-->
+// <!--================================== SCRIPT DO GRÁFICO ===========================================-->
 let proximaAtualizacao;
 
 // window.onload = obterDadosGrafico(1);
@@ -122,7 +121,7 @@ function plotarGrafico(resposta, idAquario) {
         data: dados,
         options: {
             responsive: true,
-            animation: { duration: 500 },
+            animation: { duration: 1000 },
             hoverMode: 'index',
             stacked: false,
             title: {
@@ -138,7 +137,7 @@ function plotarGrafico(resposta, idAquario) {
                         id: 'y-chave',
                         ticks: {
                             beginAtZero: true,
-                            max: 50,
+                            max: 1000,
                             min: 0
                         }
                     }],
@@ -173,6 +172,24 @@ function atualizarGrafico(idAquario, dados) {
 
                 window.grafico_linha.update();
 
+                for (let contador = 1; contador < 600; contador++) {
+
+
+                    if (novoRegistro[0].chave <= 300) {
+                        span_analytics.innerHTML = `<span style="color: red;">Crítico</span>`
+                    }
+                    else if (novoRegistro[0].chave > 300 && novoRegistro[0].chave <= 500) {
+                        span_analytics.innerHTML = `<span style="color: yellow;">Cuidado</span>`
+                    }
+                    else if (novoRegistro[0].chave > 500 && novoRegistro[0].chave <= 750) {
+                        span_analytics.innerHTML = `<span style="color: green;">Ideal</span>`
+                    }
+                    else if (novoRegistro[0].chave > 750 && novoRegistro[0].chave <= 1000) {
+                        span_analytics.innerHTML = `<span style="color: purple;">Lotação</span>`
+                    }
+
+                }
+
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
             });
@@ -185,5 +202,4 @@ function atualizarGrafico(idAquario, dados) {
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-
 }

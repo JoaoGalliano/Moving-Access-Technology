@@ -4,26 +4,26 @@
 
 /* para MySQL - local - Desenvolvimento */
 
-CREATE DATABASE mat;
-USE mat;
+CREATE DATABASE MAT;
+USE MAT;
 
-CREATE TABLE empresa (
+CREATE TABLE Empresa (
 	idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	cnpj VARCHAR(20)
 );
 
-CREATE TABLE estacionamento (
+CREATE TABLE Estacionamento (
 	idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
 	cep INT,
 	numero INT,
 	uf VARCHAR(2),	
 	numVagas INT,
 	fkEmpresa INT,
-	FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-CREATE TABLE usuario (
+CREATE TABLE Usuario (
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	sobrenome VARCHAR(45),
@@ -31,27 +31,27 @@ CREATE TABLE usuario (
 	senha VARCHAR(45),
 	fkEmpresa INT,
 	fkAdmChefe INT,
-	FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa),
-	FOREIGN KEY (fkAdmChefe) REFERENCES usuario (idUsuario)
+	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
+	FOREIGN KEY (fkAdmChefe) REFERENCES Usuario (idUsuario)
 );
 
-CREATE TABLE usuario_estacionamento (
+CREATE TABLE Usuario_Estacionamento (
 	fkUsuario INT,
 	fkEstacionamento INT,
 	PRIMARY KEY (fkUsuario, fkEstacionamento),
-	FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-	FOREIGN KEY (fkEstacionamento) REFERENCES estacionamento (idEstacionamento)
+	FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
+	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento)
 );
 
-CREATE TABLE sensor (
+CREATE TABLE Sensor (
 	idSensor  INT PRIMARY KEY AUTO_INCREMENT,
 	fkEstacionamento INT,
 	fkEmpresa INT,
-	FOREIGN KEY (fkEstacionamento) REFERENCES estacionamento (idEstacionamento),
-	FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
+	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-CREATE TABLE dados (
+CREATE TABLE Dados (
 	idDados INT AUTO_INCREMENT,
 	data DATE,
 	hora TIME,
@@ -60,9 +60,9 @@ CREATE TABLE dados (
 	fkEstacionamento INT,
 	fkEmpresa INT,
 	PRIMARY KEY (idDados, fkSensor, fkEstacionamento, fkEmpresa),
-	FOREIGN KEY (fkSensor) REFERENCES sensor (idSensor),
-	FOREIGN KEY (fkEstacionamento) REFERENCES estacionamento (idEstacionamento),
-	FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+	FOREIGN KEY (fkSensor) REFERENCES Sensor (idSensor),
+	FOREIGN KEY (fkEstacionamento) REFERENCES Estacionamento (idEstacionamento),
+	FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
 -- CREATE DATABASE acquatec;

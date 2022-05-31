@@ -6,19 +6,18 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        CONVERT(varchar, momento, 108) as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc`;
+        state as chave, 
+        data,
+                        CONVERT(varchar, data, 108) as momento_grafico
+                    from dados
+                    where fkSensor = 1
+                    order by data desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
                         state as chave,
                        hora as momento_grafico
                     from dados
-                    where fkSensor = 2
+                    where fkSensor = 1
                     order by hora desc limit ${limite_linhas}`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -34,20 +33,16 @@ function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc`
-
+        instrucaoSql = `select SUM(state) as chave,
+        (select top 1 CONVERT(VARCHAR(11),DATA,108) from dados where fkSensor = 1 order by data desc) as momento_grafico 
+            from dados
+                where fkSensor = 1`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select
                         SUM(state) as chave,
-                        (select hora from dados where fkSensor = 2 order by hora desc limit 1) as momento_grafico
+                        (select hora from dados where fkSensor = 1 order by hora desc limit 1) as momento_grafico
                         from dados
-                        where fkSensor = 2`
+                        where fkSensor = 1`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

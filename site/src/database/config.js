@@ -5,6 +5,7 @@ var sql = require('mssql');
 var sqlServerConfig = {
     server: "svr-1adsb-grupo5.database.windows.net",
     database: "grupo5-mat",
+    //alterar para data writer
     user: "admin-1adsb-grupo05",
     password: "#Gfgrupo5",
     pool: {

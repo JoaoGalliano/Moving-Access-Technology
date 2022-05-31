@@ -75,7 +75,7 @@ function entrar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    window.location = "./dashboard/alertas.html";
+                    window.location = "./dashboard/dashboard.html";
                 }, 1000); // apenas para exibir o loading
 
             });
