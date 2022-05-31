@@ -62,6 +62,9 @@
 
 
 // <!--================================== SCRIPT DO GRÁFICO ===========================================-->
+    var maior = Number(-9999);
+      var menor = Number(9999);
+
 let proximaAtualizacao;
 
 // window.onload = obterDadosGrafico(1);
@@ -101,7 +104,7 @@ function plotarGrafico(resposta, idAquario) {
                 yAxisID: 'y-chave',
                 label: 'Chave',
                 borderColor: '#FFF',
-                backgroundColor: '#32b9cd8f',
+                backgroundColor: '#ff4000',
                 fill: true,
                 data: []
             }
@@ -171,6 +174,18 @@ function atualizarGrafico(idAquario, dados) {
                 dados.datasets[0].data.push(novoRegistro[0].chave); // incluir uma nova medida de temperatura
 
                 window.grafico_linha.update();
+
+                if (menor > novoRegistro[0].chave) {
+                    menor = novoRegistro[0].chave;
+                  }
+  
+                  if (maior < novoRegistro[0].chave) {
+                    maior = novoRegistro[0].chave;
+                  }
+  
+                  span_maior.innerHTML = ` ${maior}`;
+  
+                  span_menor.innerHTML = `${menor}`;
 
                 for (let contador = 1; contador < 600; contador++) {
 
